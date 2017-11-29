@@ -1,0 +1,47 @@
+/* Resets & Tools */
+
+@import 'reset'
+
+@import 'mixins'
+
+@import 'variables'
+
+
+/* SITE CONTEXT -> Global styles */
+
+h1, h2, h3, h5, a
+
+p
+
+
+html 
+  box-sizing: border-box
+  background-color: $navy
+
+*, *:before, *:after
+  box-sizing: inherit
+
+body
+  background-color: $navy
+
+div.root 
+  background-color: $cream
+  position: relative
+
+div.container#prime
+  background: $cream url("../assets/img/bg_texture.jpg") repeat center center
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+
+
+img
+  width: 100%
+  box-sizing: border-box
+
+/* Styles ... */
+
+@import 'head'
+
+@import 'foot'

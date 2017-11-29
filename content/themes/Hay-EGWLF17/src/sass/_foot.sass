@@ -1,0 +1,130 @@
+/*  _foot.sass */
+
+/* PAGE CONTEXT -> For positioning items */
+/* includes positioning styles like display, padding, margin, height */
+/* INCEPTION RULE: DO NOT nest more than 4  */
+
+section.foot
+  width: 100%
+  max-width: 814px
+  margin: 100px auto 50px
+
+  div.first-row,
+  div.last-row,
+  div.content,
+  div.left-wrapper
+    +flex
+    
+  div.first-row,
+  div.last-row
+    padding-top: 6px
+    padding-bottom: 6px
+
+  div.left-wrapper
+    flex: 0 0 70%
+
+  div.booking-comp
+    +flex($b: center)
+    flex: 0 0 100%
+    padding: 25px
+
+  div.directions-comp,
+  div.hours-comp
+    flex: 0 0 50%
+    padding-top: 25px
+    padding-bottom: 25px
+
+  div.hours-comp
+    padding-left: 35px
+
+  div.right-wrapper
+    flex: 0 0 30%
+    height: 100%
+    padding-top: 25px
+    padding-left: 35px
+    padding-bottom: 35px
+
+  div.social-row
+    +flex($b: flex-start)
+    margin-top: 15px
+    margin-bottom: 15px
+
+  div.social
+    flex: 0 0 21px
+    margin-right: 21px
+
+    svg
+      width: 21px
+      height: 21px
+
+  div.button
+    display: inline-block
+    padding: 3px 14px
+
+  div.booking-comp div.button
+    margin-right: 40px
+
+  span.link
+    padding-bottom: 3px
+    padding-top: 3px
+
+  p.title
+    margin-top: 13px
+
+
+
+
+/* OBJECTS -> For styling objects */
+/* Includes cosmetic styles like color, typography, and borders */
+/* INCEPTION RULE: DO NOT nest more than 4  */
+
+section.foot
+  color: $navy
+  border-top: 12px solid $navy
+
+  div.first-row h3,
+  div.last-row p
+    @extend %LinkGoth
+    text-transform: uppercase
+
+  div.content
+    border-top: 2px solid $navy
+
+  div.left-wrapper,
+  div.directions-comp
+    border-right: 2px solid $navy
+
+  div.content,
+  div.booking-comp
+    border-bottom: 2px solid $navy
+
+  h2
+    @extend %HeadlineSerif
+
+  p 
+    @extend %BodyMono
+
+    a
+      color: $navy
+
+  div.button
+    @extend %LinkGoth
+    background-color: $navy
+    color: $cream
+    text-transform: uppercase
+
+    a 
+      color: $cream
+
+  span.link
+    @extend %BodyMono
+    border-bottom: 2px solid $navy
+
+    a
+      color: $navy
+
+    &:hover
+      background-color: $gold
+
+
+  

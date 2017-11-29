@@ -1,0 +1,62 @@
+/* Colors */
+
+$navy: #384259
+$gold: #be9a5c
+$cream: #ebe7df
+
+@font-face 
+  font-family: 'Founders'
+  src: url('../assets/fonts/webfonts/FoundersGroteskMonoWeb-Regular.eot')
+  src: url('../assets/fonts/webfonts/FoundersGroteskMonoWeb-Regular.eot?#iefix') format('embedded-opentype'), url('../assets/fonts/webfonts/FoundersGroteskMonoWeb-Regular.woff2') format('woff2'), url('../assets/fonts/webfonts/FoundersGroteskMonoWeb-Regular.woff') format('woff')
+  font-weight: 400
+  font-style: normal
+
+// Custom Typefaces
+%FoundersMono 
+  font-family: 'Founders'
+
+%SackersGoth
+  font-family: SackersSquareGothic
+  font-weight: normal
+  font-style: normal
+
+%SackersGothAlt
+  font-family: SackersSquareGothicAlt
+  font-weight: normal
+  font-style: normal
+
+%LarishSerif
+  font-family: Georgia, serif
+  font-weight: normal
+  font-style: normal
+
+// Type Styles
+%HeadlineSerif
+  @extend %LarishSerif
+  font-size: 1.3rem
+  line-height: 2.25rem
+  letter-spacing: 0.1rem
+
+%BodyMono
+  @extend %FoundersMono
+  font-size: 0.8rem
+  line-height: 1.4rem
+  letter-spacing: 0.05rem
+
+%HoverSerif
+  @extend %LarishSerif
+  font-size: 2rem
+  line-height: 2.6rem
+  letter-spacing: 0.6rem
+
+%MenuSerif
+  @extend %LarishSerif
+  font-size: 2rem
+  line-height: 5rem
+  letter-spacing: 0.1rem
+
+%LinkGoth
+  @extend %SackersGoth
+  font-size: 0.6rem
+  line-height: 1.6rem
+  letter-spacing: 0.15rem

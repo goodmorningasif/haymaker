@@ -1,21 +1,21 @@
 {
-  "name": "INIT",
+  "name": "Hay-EGWLF17",
   "version": "1.0.0",
-  "description": "INIT",
+  "description": "Haymaker 2018, version Eagle-Wolf. Built by Asif Ahmed",
   "main": "index.js",
   "scripts": {
     "test": "test"
   },
   "repository": {
     "type": "git",
-    "url": "INIT"
+    "url": "http://haymaker.sdcopartners.com"
   },
-  "author": "SDCO Partners",
+  "author": "Asif Ahmed | SDCO Partners",
   "license": "ISC",
   "bugs": {
     "url": "INIT"
   },
-  "homepage": "INIT",
+  "homepage": "index.js",
   "devDependencies": {
     "babel-preset-es2015": "^6.24.1",
     "gulp": "^3.9.1",

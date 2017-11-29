@@ -71,32 +71,32 @@ Copyright 2017 SDCO Partners
 Follow these steps to configure your install to your specific project.
 
 1. WP-CONFIG.PHP
-  * [ ]  set var $local_path 
-  * [ ]  set var $table_prefix  
+  * [x]  set var $local_path 
+  * [x]  set var $table_prefix  
 2. LOCAL-CONFIG-EXAMPLE.PHP
-  * [ ]  remove '-example' from end of filepath
-  * [ ]  set DB_NAME 
-  * [ ]  set DB_USER 
-  * [ ]  set DB_PASSWORD
+  * [x]  remove '-example' from end of filepath
+  * [x]  set DB_NAME 
+  * [x]  set DB_USER 
+  * [x]  set DB_PASSWORD
 3. PACKAGE.JSON
-  * [ ]  set 'name' 
-  * [ ]  set 'description' 
-  * [ ]  set 'url' for both 'repository' and 'bugs'
-  * [ ]  set 'homepage' 
+  * [x]  set 'name' 
+  * [x]  set 'description' 
+  * [x]  set 'url' for both 'repository' and 'bugs'
+  * [x]  set 'homepage' 
 4. GULPFILE.JS
-  * [ ]  set var uri in line 75
+  * [x]  set var uri in line 75
 5. .GITIGNORE
-  * [ ]  set filepath to inner CONFIG.PHP on line 75
+  * [x]  set filepath to inner CONFIG.PHP on line 75
 6. THEME FILES & FOLDERS
-  * [ ]  rename folder 'INIT' 
-  * [ ]  set 'Theme Name' and 'Theme URI' in STYLE.CSS
-  * [ ]  set var $GLOBALS['root'] and $GLOBALS['docpath'] in FUNCTIONS.PHP
-  * [ ]  set @link and @package notes on all template files.
+  * [x]  rename folder 'INIT' 
+  * [x]  set 'Theme Name' and 'Theme URI' in STYLE.CSS
+  * [x]  set var $GLOBALS['root'] and $GLOBALS['docpath'] in FUNCTIONS.PHP
+  * [x]  set @link and @package notes on all template files.
 7. SET UP DUMMY DATABE
-  * [ ]  create db and user
-  * [ ]  import dummy wordpress db
+  * [x]  create db and user
+  * [x]  import dummy wordpress db
 8. INSTALL DEPENDENCIES 
-  * [ ]  Run `npm install`
+  * [x3]  Run `npm install`
 
 
 ### Editing Current Project
