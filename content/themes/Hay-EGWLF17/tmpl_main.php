@@ -35,14 +35,18 @@ get_header(); ?>
     endif;
 
 	endwhile;
-endif;
-
-if(have_rows('team-bios')) :
-  while(have_rows('team-bios')):
-    the_row(); ?>
-  <?php endwhile;
 endif; ?>
+</div>
 
+<div class="teams">
+<?php if(have_rows('team_bios')):
+  while(have_rows('team_bios')):
+    the_row();
+
+    include(locate_template('components/teams/teams.php')); 
+
+  endwhile;
+endif; ?>
 </div>
 
 <?php get_footer();
