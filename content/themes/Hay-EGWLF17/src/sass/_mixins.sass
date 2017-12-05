@@ -19,12 +19,21 @@ $break-small: 500px
     
 
 /* Flexbox */
-
 =flex($a: flex, $b: space-between, $c: flex-start, $d: wrap)
   display: $a
   justify-content: $b
   align-items: $c
   flex-wrap: $d
+
+/* Columns */
+=col($a: 2, $b: 20px)
+  column-count: $a
+  -moz-column-count: $a
+  -webkit-column-count: $a
+  column-gap: $b
+  -moz-column-gap: $b
+  -webkit-column-gap: $b
+  
 
 /* Background Image Settings */
 =img($a: no-repeat, $b: center, $c: cover)

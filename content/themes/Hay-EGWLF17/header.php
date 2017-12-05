@@ -26,7 +26,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	
-  <title><?php wp_title( '-', true, 'right' ); ?></title>
+  <title>
+    <?php wp_title( '-', true, 'right' ); 
+      echo bloginfo(); ?>
+  </title>
 	
   <?php wp_head(); ?>
 </head>

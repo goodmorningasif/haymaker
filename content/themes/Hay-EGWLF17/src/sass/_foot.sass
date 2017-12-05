@@ -4,10 +4,10 @@
 /* includes positioning styles like display, padding, margin, height */
 /* INCEPTION RULE: DO NOT nest more than 4  */
 
-section.foot
+footer.foot
   width: 100%
-  max-width: 814px
-  margin: 100px auto 50px
+  max-width: 930px
+  margin: 100px auto
 
   div.first-row,
   div.last-row,
@@ -21,7 +21,7 @@ section.foot
     padding-bottom: 6px
 
   div.left-wrapper
-    flex: 0 0 70%
+    flex: 0 0 65%
 
   div.booking-comp
     +flex($b: center)
@@ -34,11 +34,14 @@ section.foot
     padding-top: 25px
     padding-bottom: 25px
 
+    h2
+      margin-bottom: 15px
+
   div.hours-comp
     padding-left: 35px
 
   div.right-wrapper
-    flex: 0 0 30%
+    flex: 0 0 35%
     height: 100%
     padding-top: 25px
     padding-left: 35px
@@ -59,7 +62,7 @@ section.foot
 
   div.button
     display: inline-block
-    padding: 3px 14px
+    padding: 6px 18px
 
   div.booking-comp div.button
     margin-right: 40px
@@ -68,9 +71,12 @@ section.foot
     padding-bottom: 3px
     padding-top: 3px
 
+  div.map-link
+    margin-top: 25px
+    margin-bottom: 25px
+
   p.title
     margin-top: 13px
-
 
 
 
@@ -78,7 +84,7 @@ section.foot
 /* Includes cosmetic styles like color, typography, and borders */
 /* INCEPTION RULE: DO NOT nest more than 4  */
 
-section.foot
+footer.foot
   color: $navy
   border-top: 12px solid $navy
 

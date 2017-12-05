@@ -20,6 +20,7 @@
   /* Add Styles, Fonts, and Javascript */
   function my_enqueue_style() {
     wp_enqueue_style('myfonts',$GLOBALS['url']. '/assets/fonts/myfonts.css');
+    wp_enqueue_style('rpfonts','http://webfonts.radimpesko.com/RP-W-5a16919d6f3e0cf08c000005.css');
     wp_enqueue_style('styles', $GLOBALS['url'].'/prod/styles.css');
     wp_enqueue_script('underscore', $GLOBALS['url'].'/prod/underscore.js', array('jquery'), '1.0.0', true);
     wp_enqueue_script('scripts-min', $GLOBALS['url'].'/prod/scripts.js', array('jquery'), '1.0.0', true);
