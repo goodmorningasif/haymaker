@@ -31,7 +31,6 @@ div.nav.top-middle,
 div.nav.top-right
   top: 24px
 
-
 div.nav.bottom-left,
 div.nav.bottom-right
   bottom: 24px  
@@ -48,28 +47,51 @@ div.nav.top-right
 
 div.nav.top-middle
   left: calc(50% - 106px)
+  z-index: 15
   svg
     width: 213px
     height: 18px
+
+div.container div.pinned
+  top: 350px
+  left: calc(50% - 314px)
+  svg
+    width: 628px
+    height: 52px
+
+
 
 div.pre-comp
   +flex
   width: 100%
   max-width: 812px
-  margin: 0 auto
+  margin: 0 auto 300px
+
+  div.assets,
+  div.text-block
+    flex: 1 0 auto
 
   div.assets
     width: 100%
+    margin-right: 20px
 
+  div.text-block
+    margin-top: auto
 
 /* OBJECTS -> For styling objects */
 /* Includes cosmetic styles like color, typography, and borders */
 /* INCEPTION RULE: DO NOT nest more than 4  */
-
 
 div.nav.bottom-left,
 div.nav.bottom-right
   @extend %MenuSerif
 
   a
+    color: $navy
+
+
+
+div.pre-comp
+  div.text-block
+    @extend %HeadlineSerif
     color: $navy

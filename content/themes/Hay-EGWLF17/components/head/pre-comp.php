@@ -6,7 +6,7 @@
 	$assets = get_field('assets'); 
   $image = $assets['image']; ?>
 
-<div class="pre-comp">
+<div class="pre-comp" id="on-home">
 	<div class="text-block">
 		<?php echo get_field('text'); ?>
 	</div>

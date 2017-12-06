@@ -14,7 +14,7 @@
   <div class="nav top-left">
     <a href=""><?php echo $seal_logo; ?></a>
   </div>
-  <div class="nav top-middle">
+  <div class="nav top-middle" id="main-logo">
     <a href=""><?php echo $main_logo;  ?></a>
   </div>
   <div class="nav top-right">

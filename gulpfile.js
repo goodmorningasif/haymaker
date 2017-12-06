@@ -8,7 +8,8 @@ var gulp = require("gulp")
 , notify = require('gulp-notify')
 , livereload = require('gulp-livereload')
 , babel = require('gulp-babel')
-, modernizr = require('gulp-modernizr');
+, modernizr = require('gulp-modernizr')
+, eslint = require('gulp-eslint');
 
 
 // uri
@@ -43,13 +44,21 @@ gulp.task('styles', function() {
 	  .pipe(livereload());
 });
 
+// Lint JS
+gulp.task('lint', function() {
+  return gulp.src([paths.js, '!node_modules/**'])
+    .pipe(eslint())
+    .pipe(eslint.format())
+    .pipe(eslint.failAfterError())
+});
+
 // Uglify JS
-gulp.task('uglify', function() {
+gulp.task('uglify', ['lint'], function() {
 	gulp.src(paths.js)
 		.pipe(plumber(plumberErrorHandler))
 		.pipe(babel({
-                  presets: ['es2015']
-		  }))
+      presets: ['es2015']
+		}))
 		.pipe(concat('scripts.js'))
 	  .pipe(uglify())
 	  .pipe(gulp.dest(paths.dest))
