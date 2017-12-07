@@ -19,7 +19,7 @@ var paths = {
 	scss: uri.concat('src/sass/**/*.sass'),
 	styles: uri.concat('src/sass/styles.sass'),
 	php: uri.concat('**/*.php'),
-	js: uri.concat('src/js/**/*.js'),
+	js: uri.concat('src/js/*.js'),
 	src: uri.concat('src/js'),
 	dest: uri.concat('prod/'),
 	modJs: uri.concat('prod/scripts-min.js'),
@@ -52,8 +52,8 @@ gulp.task('lint', function() {
     .pipe(eslint.failAfterError())
 });
 
-// Uglify JS
-gulp.task('uglify', ['lint'], function() {
+// Compile JS
+gulp.task('compile', ['lint'], function() {
 	gulp.src(paths.js)
 		.pipe(plumber(plumberErrorHandler))
 		.pipe(babel({
@@ -61,7 +61,7 @@ gulp.task('uglify', ['lint'], function() {
 		}))
 		.pipe(concat('scripts.js'))
 	  .pipe(uglify())
-	  .pipe(gulp.dest(paths.dest))
+    .pipe(gulp.dest(paths.dest))
 	  .pipe(livereload())
 });
 
@@ -78,7 +78,7 @@ gulp.task('default', function() {
 	livereload.listen();
 	gulp.watch(paths.php, livereload.reload);
 	gulp.watch(paths.scss, ['styles']);
-	gulp.watch(paths.js, ['uglify']);
+	gulp.watch(paths.js, ['compile']);
 	// gulp.watch([paths.modJs, paths.modCss], ['modernizr']);
 });
 

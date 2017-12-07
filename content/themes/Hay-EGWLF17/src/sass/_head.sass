@@ -39,6 +39,7 @@ div.nav.top-left
   svg
     width: 60px
     height: 60px
+    transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1)
 
 div.nav.top-right
   svg
@@ -48,17 +49,21 @@ div.nav.top-right
 div.nav.top-middle
   left: calc(50% - 106px)
   z-index: 15
+  transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1)
   svg
     width: 213px
     height: 18px
+    transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1)
 
 div.container div.pinned
-  top: 350px
-  left: calc(50% - 314px)
+  transform: translate(0, 350px)
+  // top: 350px
+  // left: calc(50% - 314px)
   svg
-    width: 628px
-    height: 52px
+    transform: scale(3)
 
+div.container div.rotate svg
+  transform: rotate(-180deg);
 
 
 div.pre-comp
