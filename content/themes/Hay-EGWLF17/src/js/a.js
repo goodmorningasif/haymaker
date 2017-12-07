@@ -48,25 +48,73 @@ const stickyNavLogic = ( width, trigger = 40 ) => {
 /* Set Element Rotate */
 const setElRotate = ( id ) => {
     const el = document.getElementById( id );
-    el.addEventListener( "mouseover", () => {
+    el.addEventListener( "mouseenter", () => {
         el.classList.add( "rotate" );
     } );
-    el.addEventListener( "mouseout", () => {
+    el.addEventListener( "mouseleave", () => {
         el.classList.remove( "rotate" );
     } );
 };
 
-/* Close Icon  */
+/* Burger Logic  */
 const burgerLogic = () => {
-    const $burger = document.getElementById( "open-close" );
+    const $hamMenu = document.getElementById( "ham-menu" );
+    const $burger = document.getElementById( "ham-close" );
+    const $ham1 = document.getElementById( "ham1" );
+    const $ham2 = document.getElementById( "ham2" );
+    const $ham3 = document.getElementById( "ham3" );
+    const $ham4 = document.getElementById( "ham4" );
 
-    $burger.addEventListener( "mouseover", () => {
-        document.querySelectorAll( " line.ham1, line.ham4 " ).classList.toggle('hide');
+    const toggleHams = () => {
+        $ham1.classList.toggle( "hide" );
+        $ham4.classList.toggle( "hide" );
+    };
+
+    const closeHams = () => {
+        toggleHams();
+        $ham2.setAttribute( "transform", "rotate(45,23.91,23.91)" );
+        $ham3.setAttribute( "transform", "rotate(-45,23.91,23.91)" );
+    };
+
+    const openHams = () => {
+        toggleHams();
+        $ham2.setAttribute( "transform", "" );
+        $ham3.setAttribute( "transform", "" );
+    };
+
+    $burger.addEventListener( "click", ( e ) => {
+        e.preventDefault();
+        $hamMenu.classList.toggle( "active" );
+        if ( !$hamMenu.classList.contains( "active" ) ) {
+            openHams();
+        } else {
+            closeHams();
+        }
     } );
-    // $hamBar4.classList.add('hide');
-    // $hamBar2.setAttribute("transform", "(45,23.91,13.32)");
-    // $hamBar3.setAttribute("transform", "(45,23.91,13.32)")
-}
+};
+
+/* Contact Logic */
+const contactLogic = () => {
+    const $link = document.getElementById( "contact-link" );
+    const $close = document.getElementById( "contact-close" );
+    const $menu = document.getElementById( "contact-menu" );
+
+    const toggleContact = () => {
+        $link.classList.toggle( "active" );
+        $close.classList.toggle( "active" );
+        $menu.classList.toggle( "active" );
+    };
+
+    $link.addEventListener( "click", ( e ) => {
+        e.preventDefault();
+        toggleContact();
+    } );
+
+    $close.addEventListener( "click", ( e ) => {
+        e.preventDefault();
+        toggleContact();
+    } );
+};
 
 document.onreadystatechange = () => {
     if ( document.readyState === "complete" ) {
@@ -76,7 +124,9 @@ document.onreadystatechange = () => {
 
         // Set Logo Rotate
         setElRotate( "left-logo" );
+
+        // Set Navigation Logic
         burgerLogic();
-        
+        contactLogic();
     }
 };

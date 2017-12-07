@@ -35,12 +35,10 @@ $break-small: 500px
   -webkit-column-gap: $b
 
 /* Grids */
-=grid()
-  display: grid
-  grid-template-columns: 
-  grid-template-rows: 
-
-  
+=grid($a, $b, $c)
+  display: $a
+  grid-template-columns: $b
+  grid-template-rows: $c
 
 /* Background Image Settings */
 =img($a: no-repeat, $b: center, $c: cover)

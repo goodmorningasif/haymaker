@@ -11,7 +11,4 @@
 
   include(locate_template('components/head/anchors.php'));
 
-  ?>
-
-
-
+  include(locate_template('components/head/hamburger-menu.php'));

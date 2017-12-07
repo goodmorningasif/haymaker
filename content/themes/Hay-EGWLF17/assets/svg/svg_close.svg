@@ -3,6 +3,6 @@
 		<style>.close-cls-1{fill:none;stroke:#384259;stroke-miterlimit:10;stroke-width:2.94px;}</style>
   </defs>
   <title>svg_close</title>
-	<line class="close-cls-1" x1="1.04" y1="1.04" x2="30.04" y2="30.04"/>
-	<line class="close-cls-1" x1="30.04" y1="1.04" x2="1.04" y2="30.04"/>
+	<line id="close1" class="close-cls-1" x1="1.04" y1="1.04" x2="30.04" y2="30.04"/>
+	<line id="close2" class="close-cls-1" x1="30.04" y1="1.04" x2="1.04" y2="30.04"/>
 </svg>
