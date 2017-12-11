@@ -1,0 +1,43 @@
+/* _menu.scss */
+
+/* PAGE CONTEXT -> For positioning items */
+/* includes positioning styles like display, padding, margin, height */
+/* INCEPTION RULE: DO NOT nest more than 4  */
+
+div.menu
+    +flex
+    width: 100%
+    max-width: 812px
+    margin: 150px auto
+
+    h3.cat-head
+        display: block
+        width: 100%
+        height: 40px
+        padding-top: 5px
+        padding-bottom: 3px
+        margin-top: 50px
+        margin-bottom: 30px
+
+
+
+
+
+/* OBJECTS -> For styling objects */
+/* Includes cosmetic styles like color, typography, and borders */
+/* INCEPTION RULE: DO NOT nest more than 4 */
+
+div.menu
+    @extend %BodyMono
+    color: $navy
+
+    h3.cat-head
+        @extend %LinkGoth
+        font-size: 0.8rem
+        text-transform: uppercase
+        border-top: 2px solid $navy
+        border-bottom: 2px solid $navy
+
+  
+
+

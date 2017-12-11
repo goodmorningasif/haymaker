@@ -9,6 +9,9 @@ $note = get_field( "warnings" );
 $assets = get_field( "assets" );
 $icon = $assets["icon"];
 ?>
+<div class="menu-nav">
+
+</div>
 
 <div class="menu">
 	<?php if ( have_rows( "menu_repeater" ) ) :
@@ -16,7 +19,7 @@ $icon = $assets["icon"];
 			the_row(); 
 			$cat_head = get_sub_field( "category_header" ); ?>
 
-			<h3	class="category head">
+			<h3	class="cat-head">
 				<?php echo $cat_head; ?>
 			</h3>
             
@@ -35,7 +38,7 @@ $icon = $assets["icon"];
 						</span>
 						<?php if ( $desc ) : ?>
 							<span class="desc">
-								<?php echp $desc; ?>
+								<?php echo $desc; ?>
 							</span>
 					    <?php endif; ?>
 						<span class="cost">
