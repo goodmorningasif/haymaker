@@ -13,26 +13,26 @@ get_header(); ?>
 	while(have_rows('blocks')) :
 		the_row();
 
-    /* BLOCK: ARGYLE */
-    if (get_row_layout() === 'argyle') :    
-      include(locate_template('components/blocks/argyle.php'));
+        /* BLOCK: ARGYLE */
+        if (get_row_layout() === 'argyle') :    
+            include(locate_template('components/blocks/argyle.php'));
 
-    /* BLOCK: BERWYN */
-    elseif (get_row_layout() === 'berwyn') : 
-      include(locate_template('components/blocks/berwyn.php'));	
+        /* BLOCK: BERWYN */
+        elseif (get_row_layout() === 'berwyn') : 
+            include(locate_template('components/blocks/berwyn.php'));	
 
-    /* BLOCK: CYNTHIA */
-    elseif (get_row_layout() === 'cynthia') :
-      include(locate_template('components/blocks/cynthia.php')); 
+        /* BLOCK: CYNTHIA */
+        elseif (get_row_layout() === 'cynthia') :
+            include(locate_template('components/blocks/cynthia.php')); 
 
-    /* BLOCK: DANNY */
-    elseif (get_row_layout() === 'danny') :
-      include(locate_template('components/blocks/danny.php')); 
+        /* BLOCK: DANNY */
+        elseif (get_row_layout() === 'danny') :
+            include(locate_template('components/blocks/danny.php')); 
 
-    /* BLOCK: EDGAR */
-    elseif (get_row_layout() === 'edgar') :
-      include(locate_template('components/blocks/edgar.php')); 
-    endif;
+        /* BLOCK: EDGAR */
+        elseif (get_row_layout() === 'edgar') :
+            include(locate_template('components/blocks/edgar.php')); 
+        endif;
 
 	endwhile;
 endif; ?>
@@ -40,12 +40,12 @@ endif; ?>
 
 <div class="teams">
 <?php if(have_rows('team_bios')):
-  while(have_rows('team_bios')):
-    the_row();
+    while(have_rows('team_bios')):
+        the_row();
 
-    include(locate_template('components/teams/teams.php')); 
+        include(locate_template('components/teams/teams.php')); 
 
-  endwhile;
+    endwhile;
 endif; ?>
 </div>
 

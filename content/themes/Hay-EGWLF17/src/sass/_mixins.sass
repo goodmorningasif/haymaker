@@ -35,10 +35,12 @@ $break-small: 500px
   -webkit-column-gap: $b
 
 /* Grids */
-=grid($a, $b, $c)
+=grid($a: grid, $b: repeat(3, 275px), $c: 490px, $d: 54px, $e: 54px)
   display: $a
   grid-template-columns: $b
-  grid-template-rows: $c
+  grid-auto-rows: $c
+  grid-column-gap: $d
+  grid-row-gap: $e
 
 /* Background Image Settings */
 =img($a: no-repeat, $b: center, $c: cover)
@@ -47,7 +49,6 @@ $break-small: 500px
   background-size: $c
 
 /* Browser Detection  */
-
 =browser($browsers: Mozilla)
   @each $browser in $browsers
     html[data-browser*="#{$browser}"] &

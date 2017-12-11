@@ -5,78 +5,80 @@
 /* INCEPTION RULE: DO NOT nest more than 4  */
 
 footer.foot
-  width: 100%
-  max-width: 930px
-  margin: 100px auto
+    position: relative
+    width: 100%
+    max-width: 930px
+    margin: 100px auto
+    z-index: 100
 
-  div.first-row,
-  div.last-row,
-  div.content,
-  div.left-wrapper
-    +flex
+    div.first-row,
+    div.last-row,
+    div.content,
+    div.left-wrapper
+        +flex
     
-  div.first-row,
-  div.last-row
-    padding-top: 6px
-    padding-bottom: 6px
+    div.first-row,
+    div.last-row
+        padding-top: 6px
+        padding-bottom: 6px
 
-  div.left-wrapper
-    flex: 0 0 65%
+    div.left-wrapper
+        flex: 0 0 65%
 
-  div.booking-comp
-    +flex($b: center)
-    flex: 0 0 100%
-    padding: 25px
+    div.booking-comp
+        +flex($b: center)
+        flex: 0 0 100%
+        padding: 25px
 
-  div.directions-comp,
-  div.hours-comp
-    flex: 0 0 50%
-    padding-top: 25px
-    padding-bottom: 25px
+    div.directions-comp,
+    div.hours-comp
+        flex: 0 0 50%
+        padding-top: 25px
+        padding-bottom: 25px
 
-    h2
-      margin-bottom: 15px
+        h2
+            margin-bottom: 15px
 
-  div.hours-comp
-    padding-left: 35px
+    div.hours-comp
+        padding-left: 35px
 
-  div.right-wrapper
-    flex: 0 0 35%
-    height: 100%
-    padding-top: 25px
-    padding-left: 35px
-    padding-bottom: 35px
+    div.right-wrapper
+        flex: 0 0 35%
+        height: 100%
+        padding-top: 25px
+        padding-left: 35px
+        padding-bottom: 35px
 
-  div.social-row
-    +flex($b: flex-start)
-    margin-top: 15px
-    margin-bottom: 15px
+    div.social-row
+        +flex($b: flex-start)
+        margin-top: 15px
+        margin-bottom: 15px
 
-  div.social
-    flex: 0 0 21px
-    margin-right: 21px
+    div.social
+        flex: 0 0 21px
+        margin-right: 21px
 
-    svg
-      width: 21px
-      height: 21px
+        svg
+            width: 21px
+            height: 21px
 
-  div.button
-    display: inline-block
-    padding: 6px 18px
+    div.button
+        display: inline-block
+        padding: 6px 18px
 
-  div.booking-comp div.button
-    margin-right: 40px
+    div.booking-comp div.button
+        margin-right: 40px
 
-  span.link
-    padding-bottom: 3px
-    padding-top: 3px
+    span.link
+        padding-bottom: 3px
+        padding-top: 3px
 
-  div.map-link
-    margin-top: 25px
-    margin-bottom: 25px
+    div.map-link
+        margin-top: 25px
+        margin-bottom: 25px
 
-  p.title
-    margin-top: 13px
+    p.title
+        margin-top: 13px
 
 
 
@@ -85,52 +87,52 @@ footer.foot
 /* INCEPTION RULE: DO NOT nest more than 4  */
 
 footer.foot
-  color: $navy
-  border-top: 12px solid $navy
+    color: $navy
+    border-top: 12px solid $navy
 
-  div.first-row h3,
-  div.last-row p
-    @extend %LinkGoth
-    text-transform: uppercase
+    div.first-row h3,
+    div.last-row p
+        @extend %LinkGoth
+        text-transform: uppercase
 
-  div.content
-    border-top: 2px solid $navy
+    div.content
+        border-top: 2px solid $navy
 
-  div.left-wrapper,
-  div.directions-comp
-    border-right: 2px solid $navy
+    div.left-wrapper,
+    div.directions-comp
+        border-right: 2px solid $navy
 
-  div.content,
-  div.booking-comp
-    border-bottom: 2px solid $navy
+    div.content,
+    div.booking-comp
+        border-bottom: 2px solid $navy
 
-  h2
-    @extend %HeadlineSerif
+    h2
+        @extend %HeadlineSerif
 
-  p 
-    @extend %BodyMono
+    p 
+        @extend %BodyMono
 
-    a
-      color: $navy
+        a
+            color: $navy
 
-  div.button
-    @extend %LinkGoth
-    background-color: $navy
-    color: $cream
-    text-transform: uppercase
+    div.button
+        @extend %LinkGoth
+        background-color: $navy
+        color: $cream
+        text-transform: uppercase
 
-    a 
-      color: $cream
+        a 
+            color: $cream
 
-  span.link
-    @extend %BodyMono
-    border-bottom: 2px solid $navy
+    span.link
+        @extend %BodyMono
+        border-bottom: 2px solid $navy
 
-    a
-      color: $navy
+        a
+            color: $navy
 
-    &:hover
-      background-color: $gold
+        &:hover
+            background-color: $gold
 
 
   

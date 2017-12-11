@@ -36,7 +36,7 @@
 
 <body <?php body_class(); ?>>
 
-  <div class="root">
+  <div class="root load" id="root">
     <div class="container" id="prime">
     
     <?php include(locate_template('components/head/head.php')); ?>

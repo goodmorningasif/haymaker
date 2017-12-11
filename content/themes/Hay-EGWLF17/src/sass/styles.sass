@@ -15,30 +15,36 @@ p
 
 
 html 
-  box-sizing: border-box
-  // background-color: $navy
+    box-sizing: border-box
 
 *, *:before, *:after
-  box-sizing: inherit
+    box-sizing: inherit
 
 body
-  background-color: $cream
-  background: $cream url("../assets/img/bg_texture.jpg") repeat center center
+    background-color: $cream
+    background: $cream url("../assets/img/bg_texture.jpg") repeat center center
 
 div.root 
-  background-color: $cream
-  position: relative
+    background-color: $cream
+    position: relative
 
 div.container#prime
-  position: absolute
-  top: 0
-  left: 0
-  padding-bottom: 55%
-
+    position: absolute
+    top: 0
+    left: 0
+    padding-bottom: 55%
 
 img
-  width: 100%
-  box-sizing: border-box
+    width: 100%
+    box-sizing: border-box
+
+
+div.root
+    opacity: 1
+    transition: opacity 1.2s ease
+
+body div.root.load
+    opacity: 0
 
 /* Styles ... */
 
@@ -47,5 +53,7 @@ img
 @import 'blocks'
 
 @import 'teams'
+
+@import 'press'
 
 @import 'foot'
