@@ -3,12 +3,12 @@
   * Section =>  Argyle 
   */ 
 
-	$assets = get_sub_field('assets'); 
-  $image = $assets['image']; ?>
+$assets = get_sub_field('assets'); 
+$image = $assets['image']; ?>
 
 <div class="block argyle">
 	<div class="assets" 
-	  style="background-image: url('<?php echo $image['url']; ?>'); 
+	    style="background-image: url('<?php echo $image['url']; ?>'); 
 		max-width: <?php echo $image['width']; ?>px;
 		height: <?php echo $image['height'] ?>px;">
 		<?php if(get_sub_field('options')): ?>

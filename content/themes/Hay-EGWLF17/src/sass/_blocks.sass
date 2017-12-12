@@ -25,6 +25,10 @@ div.blocks
       width: 100%
       margin-left: 58px
 
+  p.text-fm 
+    position: relative
+    z-index: 100
+
 
 
   div.block.berwyn
@@ -149,6 +153,52 @@ div.blocks
       z-index: 100
 
 
+  div.block.feingold
+    width: 100%
+    max-width: 930px
+    margin: 150px auto
+
+    div.section
+      height: 100%
+      max-height: 40px
+      transition: max-height 1s ease
+      overflow: hidden
+      margin-bottom: 40px
+
+    div.section.expand
+      max-height: 2000px
+
+    h3.head,
+    div.content
+      width: 100%
+      max-width: 630px
+      margin-right: 73px
+      margin-left: auto
+      margin-bottom: 47px
+
+    h3.sec-head
+      margin-top: 40px
+      margin-bottom: 20px
+
+    h3.head
+      height: 40px
+
+    p
+      margin-top: 20px
+
+
+  div.block.gargoyle
+    +flex
+    width: 100%
+    max-width: 930px
+    margin: 150px auto
+
+    div.section
+      flex: 0 0 275px
+
+    h3.head
+      margin-top: 40px
+      margin-bottom: 30px
 
 
 /* OBJECTS -> For styling objects */
@@ -174,3 +224,27 @@ div.blocks
 
     span.link
       border-bottom: 2px solid $navy
+
+      &:hover
+        background-color: $gold
+
+div.block.feingold
+  h3.head,
+  h3.sec-head
+    text-transform: uppercase
+
+  h3.sec-head
+    @extend %LinkGoth
+    font-size: 0.9rem
+
+  span.link
+    border-bottom: 2px solid $navy
+
+
+div.block.gargoyle,
+div.block.feingold
+  h3.head
+    @extend %HeadlineSerif
+
+  div.content p
+    @extend %BodyMono

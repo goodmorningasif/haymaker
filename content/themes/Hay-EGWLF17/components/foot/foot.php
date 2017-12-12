@@ -3,14 +3,12 @@
   * Section =>  Head
   */
 
-  /* SMART */
-  $tagline = get_field('tagline','options');
-  $contact = get_field('contact','options');
-  $address = $contact['address'];
-  $tel = $contact['telephone'];
-  $email = $contact['email'];
-  $hours = get_field('hours','options');
-?>
+$tagline = get_field('tagline','options');
+$contact = get_field('contact','options');
+$address = $contact['address'];
+$tel = $contact['telephone'];
+$email = $contact['email'];
+$hours = get_field('hours','options'); ?>
 
 <footer class="foot">
 	<div class="first-row">
@@ -27,10 +25,12 @@
 		  </div>
 		  <div class="directions-comp">
 		  	<h2>Directions</h2>
-		  	<?php echo $address; ?>
+        <p>
+		  	  <?php echo $address; ?>
+        </p>
 		  	<div class="map-link">
 		  		<span class="link">
-		  			<a href="">
+		  			<a href="https://www.google.com/maps/place/<?php echo str_replace(" ", "+", $address); ?>" target="_blank">
 		  			  Open in Maps
 		  		  </a>
 		  		</span>
@@ -55,7 +55,7 @@
   		<p>
   			<span class="link">
   				<a href="tel:<?php echo $tel; ?>">
-      			<?php echo $tel; ?>
+      			<?php echo print_tel($tel); ?>
     	   	</a>
   	   </span>
   	  </p>

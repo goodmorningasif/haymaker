@@ -95,6 +95,9 @@ footer.foot
         @extend %LinkGoth
         text-transform: uppercase
 
+    div.last-row p
+        font-size: 0.6rem
+
     div.content
         border-top: 2px solid $navy
 
@@ -120,9 +123,13 @@ footer.foot
         background-color: $navy
         color: $cream
         text-transform: uppercase
+        cursor: pointer
 
         a 
             color: $cream
+
+        &:hover
+            background-color: $gold
 
     span.link
         @extend %BodyMono
@@ -135,4 +142,7 @@ footer.foot
             background-color: $gold
 
 
-  
+div.social
+    &:hover
+        path
+            fill: $gold

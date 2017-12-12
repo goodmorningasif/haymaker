@@ -160,6 +160,10 @@ div.nav.bottom-left,
 div.nav.bottom-right
   @extend %HeadlineSerif
 
+  span.link 
+    &:hover
+      border-bottom: 2px solid $navy
+
   a
     color: $navy
 
@@ -186,7 +190,7 @@ div.nav.hamburger-menu
   li.list-link a
     color: $navy
 
-  li.list-link span.link
+  li.list-link span.link,
     &:hover
       border-bottom: 4px solid $navy
 
@@ -201,5 +205,3 @@ div.info.contact
 
   a
     color: $navy
-
-

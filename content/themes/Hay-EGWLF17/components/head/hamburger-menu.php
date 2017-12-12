@@ -23,28 +23,3 @@
 </div>
 
 
-<div class="info contact" id="contact-menu">
-  <?php $contact = get_field( "contact", "options" ); 
-    $address = $contact["address"]; 
-    $email = $contact["email"]; 
-    $phone = $contact["telephone"]; ?>
-    
-  <div class="wrapper">
-    <div class="address">
-      <span class="link">
-        <?php echo $address; ?>    
-      </span>
-    </div>
-    <div>
-      <span class="link">
-        <?php echo $email; ?>
-      </span>
-    </div>
-    <div>
-      <span class="link">
-        <?php echo $phone; ?>
-      </span>
-    </div>
-  </div>
-
-</div>

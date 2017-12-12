@@ -32,6 +32,14 @@ get_header(); ?>
         /* BLOCK: EDGAR */
         elseif (get_row_layout() === 'edgar') :
             include(locate_template('components/blocks/edgar.php')); 
+
+        /* BLOCK: FEINGOLD */
+        elseif (get_row_layout() === 'feingold') :
+            include(locate_template('components/blocks/feingold.php')); 
+
+        /* BLOCK: GARGOYLE */
+        elseif (get_row_layout() === 'gargoyle') :
+            include(locate_template('components/blocks/gargoyle.php')); 
         endif;
 
 	endwhile;

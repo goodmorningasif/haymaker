@@ -83,5 +83,20 @@
   }
   add_action('_admin_menu', 'remove_editor_menu', 1);
 
+  /*
+  * Print Tel
+  *
+  * Handles splitting up phone number with periods
+  *
+  */
+  function print_tel($input, $gap = '-') {
+    $string = array();
+    $is_one = $input[0] === '1';
+    $string[0] = $is_one ? mb_substr($input, 0, 4) : mb_substr($input, 0, 3);
+    $string[1] = $is_one ? mb_substr($input, 3, 3) : mb_substr($input, 3, 3);
+    $string[2] = $is_one ? mb_substr($input, 7) : mb_substr($input, 6);
+    $output = $string[0] . $gap . $string[1] . $gap . $string[2];
+    return $output;
+  } 
 
 ?>

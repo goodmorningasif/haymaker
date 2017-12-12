@@ -133,9 +133,18 @@ const toggleRootLoad = () => {
     $root.classList.toggle( "load" );
 };
 
+/* Toggle Expandables */
+const toggleExpandables = () => {
+    const $sections = document.getElementsByClassName( "section" );
+    Array.prototype.forEach.call( $sections, ( $section ) => {
+        $section.addEventListener( "click", () => {
+            $section.classList.toggle( "expand" );
+        } );
+    } );
+};
+
 document.onreadystatechange = () => {
     if ( document.readyState === "complete" ) {
-        
         // Remove Root Load
         toggleRootLoad();
 
@@ -152,5 +161,8 @@ document.onreadystatechange = () => {
 
         // Set Team Bios Logic
         teamBiosLogic();
+
+        // Set Expandables Logic
+        toggleExpandables();
     }
 };
