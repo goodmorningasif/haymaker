@@ -29,7 +29,7 @@
   </div>
   <div class="text-block berwyn_b">
     <?php echo get_sub_field('text_a');
-    if($icon_a && $options && $options[0] === 'Text Block B'): ?>
+    if($icon_a && $options && $options[0] === 'Text Block A'): ?>
       <div class="icon berwyn_a" 
         style="background-image: url('<?php echo $icon_a['url']; ?>');
         max-width: <?php echo $icon_a['width']; ?>px;

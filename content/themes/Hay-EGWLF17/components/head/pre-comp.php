@@ -3,8 +3,8 @@
   * Section =>  Pre-Comp
   */
 
-	$assets = get_field('assets'); 
-  $image = $assets['image']; ?>
+$assets = get_field('assets'); 
+$image = $assets['image']; ?>
 
 <div class="pre-comp" id="on-home">
 	<div class="text-block">

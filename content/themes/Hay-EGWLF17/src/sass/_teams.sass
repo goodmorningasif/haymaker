@@ -9,6 +9,7 @@ div.teams
     width: 100%
     max-width: 984px
     margin: 150px auto 0
+    position: relative
 
     div.team-member
         flex: 0 0 33.33%
@@ -16,25 +17,21 @@ div.teams
         max-height: 490px
         margin-bottom: 27px
         overflow: hidden
-        transition: max-height 0.5s cubic-bezier(0.645, 0.045, 0.355, 1)
+        // transition: max-height 0.5s cubic-bezier(0.645, 0.045, 0.355, 1)
 
         div.profile
             margin: 0 auto
 
 
-        h2
+        h2,
+        p
             margin-top: 30px
             margin-bottom: -5px
 
         h2,
-        h3
+        h3,
+        p
             margin-left: 24px
-
-        p,
-        h3.close-height
-            margin: 20px auto
-            width: 100%
-            max-width: 710px
 
         span.link
             padding-top: 5px
@@ -42,10 +39,32 @@ div.teams
 
 
 
-div.teams div.team-member.active
-    height: 100%
-    max-height: 1200px
-    overflow-y: scroll
+    div.team-member.active 
+        div.full-bio,
+        div.overlay
+            position: fixed
+            width: 100%
+        
+        div.full-bio
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%);
+            max-width: 986px
+            padding: 60px 80px 100px
+            z-index: 130
+
+        div.overlay
+            top: 0
+            left: 0
+            z-index: 100
+            height: 100%
+
+        span.link svg
+            position: absolute
+            top: 25px
+            right: 25px
+            width: 20px
+            height: 20px
 
   
 
@@ -83,12 +102,6 @@ div.teams
             transition: filter 0.3s ease
 
 
-        span.link
-            border-bottom: 2px solid $navy
-
-            &:hover
-                background-color: $gold
-
 
 
 
@@ -103,6 +116,15 @@ div.teams
         h3.close-height
             color: $navy
 
+        div.full-bio
+            background-color: $cream
 
+        div.overlay
+            background-color: rgba(137,136,133,0.55)
 
+        span.link svg
+
+            &:hover
+                line
+                    stroke: $gold
     

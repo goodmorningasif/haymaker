@@ -23,11 +23,9 @@ div.nav.top-left,
 div.nav.top-right,
 div.nav.bottom-left,
 div.nav.bottom-right,
+div.nav.top-middle,
 div.nav.close
   z-index: 130
-
-div.nav.top-middle
-  z-index: 30
 
 div.nav.top-left,
 div.nav.bottom-left,
@@ -161,8 +159,10 @@ div.nav.bottom-right
   @extend %HeadlineSerif
 
   span.link 
+    border-bottom: 2px solid $navy
+
     &:hover
-      border-bottom: 2px solid $navy
+      border-bottom: none
 
   a
     color: $navy
@@ -186,13 +186,16 @@ div.nav.hamburger-menu
   li.list-link
     @extend %MenuSerif
     text-align: center
+    text-transform: uppercase
 
   li.list-link a
     color: $navy
 
   li.list-link span.link,
+    border-bottom: 4px solid $navy
+
     &:hover
-      border-bottom: 4px solid $navy
+      border-bottom: none
 
 div.info.contact
   @extend %MenuSerif

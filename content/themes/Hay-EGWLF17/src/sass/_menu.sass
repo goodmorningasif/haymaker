@@ -24,6 +24,12 @@ div.menu-nav
     span.link
         padding-top: 5px
 
+        &:hover
+            padding-bottom: 2px
+
+    span.link.active
+        padding-bottom: 2px
+
 
 div.menu
     +flex
@@ -90,8 +96,21 @@ div.menu-nav
         text-align: center
         border-bottom: 2px solid $navy
 
-    a
-        color: $navy
+        a
+            color: $navy
+
+        &:hover 
+            border: none
+
+            a
+                color: $gold
+
+    span.link.active
+        border: none
+
+        a
+            color: $gold
+
 
 div.menu
     @extend %BodyMono

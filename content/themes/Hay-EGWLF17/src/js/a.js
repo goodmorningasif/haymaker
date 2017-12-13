@@ -143,6 +143,28 @@ const toggleExpandables = () => {
     } );
 };
 
+/* Load Component By ID */
+const loadCompByID = () => {
+    const URL = window.location.pathname;
+    const hasHash = URL.indexOf( "#" );
+    if ( hasHash > 0 ) {
+        const [ , hash ] = URL.split( "#" );
+        const $el = document.getElementById( hash );
+        $el.classList.toggle( "active" );
+    }
+};
+
+/* Active Menu */
+const activeMenu = () => {
+    const URL = window.location.pathname;
+    const split = URL.split( "/" );
+    const page = split[ split.length - 2 ].toLowerCase();
+    const $pageLink = document.getElementById( `pg-${ page }` );
+    if ( $pageLink ) {
+        $pageLink.classList.toggle( "active" );
+    }
+};
+
 document.onreadystatechange = () => {
     if ( document.readyState === "complete" ) {
         // Remove Root Load
@@ -164,5 +186,11 @@ document.onreadystatechange = () => {
 
         // Set Expandables Logic
         toggleExpandables();
+
+        // Set Loading Logic
+        loadCompByID();
+
+        // Set Menu Logic
+        activeMenu();
     }
 };
