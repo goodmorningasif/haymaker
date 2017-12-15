@@ -14,14 +14,14 @@ $reserve = $menu_repeater[2]['link']; ?>
 
 <header class="head-anchors">
     <div class="nav top-left" id="left-logo">
-        <a href=""><?php echo $seal_logo; ?></a>
+        <a href="http://haymaker.sdcopartners.com"><?php echo $seal_logo; ?></a>
     </div> 
 <?php if($head && $head[0] === 'Enable'): ?>
     <div class="nav top-middle pinned" id="main-logo">
 <?php else : ?>
     <div class="nav top-middle" id="main-logo">
 <?php endif; ?>
-        <a href=""><?php echo $main_logo; ?></a>
+        <a href="http://haymaker.sdcopartners.com"><?php echo $main_logo; ?></a>
     </div>
     <div class="nav top-right" id="ham-close">
         <a id="view-menu" href=""><?php echo $ham_icon; ?></a>

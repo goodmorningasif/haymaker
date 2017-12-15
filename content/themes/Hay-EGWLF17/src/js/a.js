@@ -4,46 +4,10 @@
 *
 */
 
-/* Calculate Browser Dimensions */
-// const calcBrowserSize = () => {
-//     const dimensions = {};
-//     const $docEl = document.documentElement;
-//     dimensions.width = 0;
-//     dimensions.height = 0;
-//     if ( typeof ( window.innerWidth ) === "number" ) {
-//         dimensions.width = window.innerWidth;
-//         dimensions.height = window.innerHeight;
-//     } else if ( $docEl && ( $docEl.clientWidth || $docEl.clientHeight ) ) {
-//         dimensions.width = document.documentElement.clientWidth;
-//         dimensions.height = document.documentElement.clientHeight;
-//     }
-//     return dimensions;
-// };
-
-/* Scroll Tracker */
-// const scrollTracker = () => {
-//     const $docEl = document.documentElement;
-//     const scrollTop = ( window.pageYOffset !== undefined ) ?
-//         window.pageYOffset :
-//         ( $docEl || $docEl.body.parentNode || $docEl.body ).scrollTop;
-//     return scrollTop;
-// };
-
-// /* Stickey Nav Logic */
-// const stickyNavLogic = ( width, trigger = 40 ) => {
-//     const $logo = document.getElementById( "main-logo" );
-//     const $preComp = document.getElementById( "on-home" );
-//     if ( $preComp && width >= 700 ) {
-//         window.addEventListener( "scroll", () => {
-//             const scrollTop = scrollTracker();
-//             if ( scrollTop >= trigger ) {
-//                 $logo.classList.remove( "pinned" );
-//             } else {
-//                 $logo.classList.add( "pinned" );
-//             }
-//         }, false );
-//     }
-// };
+const toggleLogoIndex = () => {
+    const $main = document.getElementById( "main-logo" );
+    $main.classList.toggle( "menu-up" );
+};
 
 /* Set Element Rotate */
 const setElRotate = ( id ) => {
@@ -87,8 +51,12 @@ const burgerLogic = () => {
         $hamMenu.classList.toggle( "active" );
         if ( !$hamMenu.classList.contains( "active" ) ) {
             openHams();
+            setTimeout( () => {
+                toggleLogoIndex();
+            }, 500 );
         } else {
             closeHams();
+            toggleLogoIndex();
         }
     } );
 };
@@ -108,11 +76,15 @@ const contactLogic = () => {
     $link.addEventListener( "click", ( e ) => {
         e.preventDefault();
         toggleContact();
+        toggleLogoIndex();
     } );
 
     $close.addEventListener( "click", ( e ) => {
         e.preventDefault();
         toggleContact();
+        setTimeout( () => {
+            toggleLogoIndex();
+        }, 500 );
     } );
 };
 
@@ -145,7 +117,7 @@ const toggleExpandables = () => {
 
 /* Load Component By ID */
 const loadCompByID = () => {
-    const URL = window.location.pathname;
+    const URL = window.location.href;
     const hasHash = URL.indexOf( "#" );
     if ( hasHash > 0 ) {
         const [ , hash ] = URL.split( "#" );
@@ -170,27 +142,17 @@ document.onreadystatechange = () => {
         // Remove Root Load
         toggleRootLoad();
 
-        // Sticky Nav Call
-        // const browserSize = calcBrowserSize( );
-        // stickyNavLogic( browserSize.width );
-
-        // Set Logo Rotate
-        setElRotate( "left-logo" );
-
-        // Set Navigation Logic
-        burgerLogic();
-        contactLogic();
-
-        // Set Team Bios Logic
-        teamBiosLogic();
-
-        // Set Expandables Logic
-        toggleExpandables();
-
         // Set Loading Logic
         loadCompByID();
 
         // Set Menu Logic
         activeMenu();
+        burgerLogic();
+
+        // Set Compomet Logic
+        teamBiosLogic();
+        toggleExpandables();
+        contactLogic();
+        setElRotate( "left-logo" );
     }
 };

@@ -3,12 +3,17 @@
   * Section =>  Items
   */ 
 
+
 if ( have_rows( "menu_repeater" ) ) :
+
+	$count = 0;
+	$length =  count( get_field_object( "menu_repeater" ) );
+
 	while ( have_rows( "menu_repeater" ) ) : 
 		the_row(); 
 		$cat_head = get_sub_field( "category_header" ); ?>
 
-		<h3	class="cat-head">
+		<h3	class="cat-head <?php echo $count; ?>">
 			<?php echo $cat_head; ?>
 		</h3>
         
@@ -42,7 +47,7 @@ if ( have_rows( "menu_repeater" ) ) :
 		endif; ?>
 	    </div>
 
-	<?php endwhile;
+	<?php $count++;endwhile; 
 endif; ?>
 
 <div class="note">

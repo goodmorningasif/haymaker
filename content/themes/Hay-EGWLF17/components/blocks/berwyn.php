@@ -27,7 +27,7 @@
       </div>
     <?php endif;?>
   </div>
-  <div class="text-block berwyn_b">
+  <div class="text-block berwyn_b <?php echo ($icon_a && $options && $options[0]) ? "has-icon" : "no-icon"; ?>">
     <?php echo get_sub_field('text_a');
     if($icon_a && $options && $options[0] === 'Text Block A'): ?>
       <div class="icon berwyn_a" 

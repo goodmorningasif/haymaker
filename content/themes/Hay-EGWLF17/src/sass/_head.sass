@@ -47,6 +47,12 @@ div.nav.close#contact-close
   bottom: 24px
   transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1)
 
+div.nav.bottom-left,
+div.nav.bottom-right
+  &:hover
+    padding-bottom: 2px
+    bottom: 22px
+
 div.nav.top-left
   svg
     width: 60px
@@ -57,37 +63,81 @@ div.nav.top-right
   svg
     width: 48px
     height: 48px
+    +tablet
+      width: 30px
+      height: 30px
+      // 
 
     .ham-cls-1
       transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1), opacity 0.3s ease
-
 
 div.nav.top-right line.ham-cls-1.hide
   opacity: 0
 
 div.nav.top-middle
-  left: calc(50% - 106px)
+  left: calc(50% - 132px)
+  padding-top: 18px
   z-index: 15
   transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1)
+  +tablet
+    left: calc(50% - 92px)
+
   svg
-    width: 213px
-    height: 18px
+    width: 264px
+    height: 22px
     transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1)
+    +tablet
+      width: 184px
+      height: 15px
+      // 
 
 div.nav.close
   width: 35px
   height: 35px
+  +tablet
+    width: 20px
+    height: 20px
+    // 
 
 div.nav.close#contact-close
   transform: translate(-80px, 0)
   transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1)
 
+div.nav.bottom-left,
+div.nav.top-right,
+div.nav.close#contact-close
+  +tablet
+    top: 20px
+    // 
 
+div.nav.top-right
+  +tablet
+    right: 20px
+    // 
 
+div.nav.bottom-left
+  +tablet
+    left: 20px
+    // 
+
+div.nav.top-left,
+div.nav.bottom-right
+  +tablet
+    display: none
+    // 
+
+/* JS TOGGLE STYLES */
 div.container div.pinned
   transform: translate(0, 350px)
+  +tablet
+    transform: translate(0, 135px)
+    // 
+
   svg
-    transform: scale(3)
+    transform: scale(2.42)
+    +tablet
+      transform: scale(1.15)
+      // 
 
 div.container div.rotate svg
   transform: rotate(-180deg)
@@ -100,22 +150,40 @@ div.container div.nav.bottom-left.active
 
 
 
+/* PRE HEADER COMPONENT */  
 div.pre-comp
   +flex
   width: 100%
   max-width: 812px
   margin: 0 auto 300px
+  +tablet
+    margin-bottoM: 200px
+    max-width: 80vw
+    // 
 
   div.assets,
   div.text-block
-    flex: 1 0 auto
+    flex: 0 0 auto
 
   div.assets
+    +img
     width: 100%
     margin-right: 20px
+    +tablet
+      flex: 0 0 60%
+      margin-right: 0
+      max-height: 18vh
+      transform: translate(-20px,0)
+      // 
 
   div.text-block
+    position: relative
     margin-top: auto
+    z-index: 100
+    +tablet
+      flex: 0 0 40%
+      transform: translate(40px,170px)
+      // 
 
 
 
@@ -134,20 +202,43 @@ div.nav.hamburger-menu
   transform: translate(140vw, 0)
 
   ul.menu-links
-    display: block
-    width: 270px;
+    width: 270px
+
+  li.list-link span.link
+    &:hover
+      padding-bottom: 4px
+
+  li.list-link:active span.link
+    padding-bottom: 4px
+
+
 
 div.info.contact
   transform: translate(-140vw, 0)
 
   div
-    width: 609px
+    width: 740px
+    +tablet
+      width: 80vw
+
+  div.wrapper span.link
+    &:hover
+      padding-bottom: 2px
 
 
-
+/* HAMBURGER & CONTACT VIEWS */  
 div.container div.nav.hamburger-menu.active,
-div.info.contact.active
-  transform: translate(0, 0)
+div.info.contact.active,
+div.nav.top-middle.menu-up.pinned
+  transform: translate(0,0)
+
+div.nav.top-middle.menu-up
+  z-index: 130
+
+div.nav.top-middle.menu-up.pinned
+  svg
+    transform: scale(1)
+
 
 
 /* OBJECTS -> For styling objects */
@@ -160,14 +251,16 @@ div.nav.bottom-right
 
   span.link 
     border-bottom: 2px solid $navy
-
     &:hover
       border-bottom: none
 
   a
     color: $navy
+    &:hover
+      color: $gold
 
-
+div.nav.close
+  cursor: pointer
 
 div.pre-comp
   div.text-block
@@ -191,16 +284,27 @@ div.nav.hamburger-menu
   li.list-link a
     color: $navy
 
-  li.list-link span.link,
+  li.list-link span.link
     border-bottom: 4px solid $navy
-
     &:hover
       border-bottom: none
+      a
+        color: $gold
+
+  li.list-link.active span.link
+    border-bottom: none
+
+    a
+      color: $gold
+
 
 div.info.contact
   @extend %MenuSerif
   color: $navy
   text-align: center
+  +tablet
+    font-size: 1.7rem
+    line-height: 2.4rem
 
   div.wrapper span.link
     &:hover

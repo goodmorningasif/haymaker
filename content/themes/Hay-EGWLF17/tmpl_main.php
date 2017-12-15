@@ -46,15 +46,15 @@ get_header(); ?>
 endif; ?>
 </div>
 
+<?php if(have_rows('team_bios')): ?>
 <div class="teams">
-<?php if(have_rows('team_bios')):
-    while(have_rows('team_bios')):
+    <?php while(have_rows('team_bios')):
         the_row();
 
         include(locate_template('components/teams/teams.php')); 
 
-    endwhile;
-endif; ?>
+    endwhile; ?>
 </div>
+<?php endif; ?>
 
 <?php get_footer();

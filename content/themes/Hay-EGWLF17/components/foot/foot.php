@@ -66,7 +66,7 @@ $hours = get_field('hours','options'); ?>
   			    $social_icon = get_sub_field('icon');
   			    $social_url = get_sub_field('url'); ?>
   			    <div class="social">
-  			    	<a href="<?php echo $social_url; ?>">
+  			    	<a href="<?php echo $social_url; ?>" target="_blank">
   			    	  <?php echo file_get_contents($social_icon['url']); ?>
   			      </a>
   			    </div>

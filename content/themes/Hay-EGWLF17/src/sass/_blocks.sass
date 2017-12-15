@@ -7,34 +7,73 @@
 div.blocks
   width: 100%
   max-width: 1280px
-  margin: 150px auto 0
+  margin: 150px auto
+  +tablet
+    margin-top: 90px
 
   div.text-block
     p
       margin-bottom: 40px
 
-  div.block.argyle
-    +flex
-    width: 100%
-    max-width: 930px
-    margin: 150px auto
-
-    div.assets
-      +img
-      width: 100%
-      margin-left: 58px
+    p:last-child()
+      margin-bottom: 0
 
   p.text-fm 
     position: relative
     z-index: 100
 
+  p.text-right
+    margin-top: 90px
+    +tablet
+      margin-top: 0 
+
+  span.link
+    padding-bottom: 5px
+    
+    &:hover
+      padding-bottom: 2px
 
 
+  /* BLOCK: ARGYLE */
+  div.block.argyle
+    +flex
+    width: 100%
+    max-width: 930px
+    margin: 150px auto
+    +tablet
+      max-width: 70vw
+      margin: 90px auto
+
+    div.assets
+      +img
+      flex: 0 0 580px
+      width: 100%
+      margin-left: 58px
+      +tablet
+        flex: 0 0 100%
+        order: 2
+        margin-left: 0
+        max-height: 200px
+
+    div.text-block
+      flex: 0 0 250px
+      +tablet
+        flex: 0 0 155px
+        margin-left: auto
+
+
+  /* BLOCK: BERWYN */
   div.block.berwyn
     +col($b: 0)
     width: 100%
     max-width: 1046px
-    margin: 150px auto 0
+    margin: -25px auto
+    +tablet
+      +col($a:1,$b:0)
+      +flex
+      max-width: 70vw
+      margin-top: 90px
+      // 
 
     div.assets,
     div.icon
@@ -51,34 +90,82 @@ div.blocks
     div.assets.berwyn_a
       margin-top:  178px
       margin-left: 116px
+      +tablet
+        order: 1
+        background-size: contain
+        background-position: 35% 0
+        max-height: 40vh
+        //
 
     div.assets.berwyn_b
       margin-top: 217px
+      +tablet
+        order: 3
+        max-height: 27vh
+        // 
       
     div.text-block.berwyn_a
       margin-top: 170px
       margin-left: 116px
       margin-right: 58px
       min-height: 252px
+      +tablet
+        order: 4
+        // 
 
       p:first-of-type
         padding-top: 100px
+        +tablet
+          padding-top: 40px
+          padding-left: 30px
+          // 
+
+      p.text-fm
+        +tablet
+          padding-left: 40px
+          // 
 
     div.text-block.berwyn_b
+      +tablet
+        order: 2
+        // 
    
       p:first-of-type
-        margin-top: 150px
-        padding-top: 70px
         padding-left: 58px
+        +tablet
+          padding-left: 40px
+          // 
 
       p.text-fm 
         padding-left: 58px
 
+      p.text-right
+        +tablet
+          padding-left: 40px
+          // 
+
+    div.text-block.berwyn_b.has-icon
+      p:first-of-type
+        margin-top: 150px
+        padding-top: 70px
+        padding-left: 58px
+        +tablet
+          margin-top: 0
+          padding-top: 100px
+          padding-left: 40px
+
     div.icon.berwyn_a
+      +img
       position: absolute
       top: 0
       left: 18px
       z-index: 10
+      +tablet
+        left: 10px
+        top: 40px
+        width: 58px
+        max-height: 160px
+        // 
 
     div.icon.berwyn_b
       position: absolute
@@ -87,26 +174,46 @@ div.blocks
       margin: 0 auto
       z-index: 10
 
+    div.assets.berwyn_a,
+    div.assets.berwyn_b,
+    div.text-block.berwyn_a,
+    div.text-block.berwyn_b
+      +tablet
+        flex: 0 0 100%
+        margin-top: 0
+        margin-left: 0
+        // 
 
 
+  /* BLOCK: CYNTHIA */
   div.block.cynthia
     position: relative
     width: 100%
     max-width: 930px
     margin: 150px auto
+    +tablet
+      margin: 90px auto
 
     div.assets
+      +img
       position: relative
       margin: 40px auto
       width: 100%
       z-index: 10
+      +tablet
+        max-height: 40vh
 
     div.icon
+      +img
       position: absolute
       top: -40px
       left: 120px
       width: 100%
       z-index: 10
+      +tablet
+        left: 40px
+        max-height: 80px
+        width: 80px
 
 
 
@@ -122,7 +229,7 @@ div.blocks
       margin: 0 auto
 
     p.text-fm 
-      padding-left: 116px
+      padding-left: 100px
 
     p
       position: relative
@@ -132,13 +239,13 @@ div.blocks
       position: absolute
       width: 100%
       top: -50px
-      right: 50px
+      right: 150px
       z-index: 10
 
   div.block.danny:nth-of-type(2n+1)
     div.icon
       right: initial
-      left: 150px
+      left: 270px
       top: -100px
 
   div.forms
@@ -146,6 +253,8 @@ div.blocks
     width: 100%
     margin: 8px auto 0
     padding: 70px 58px
+    position: relative
+    z-index: 100
 
     div.form 
       input
@@ -157,11 +266,12 @@ div.blocks
         width: 100%
         max-width: 678px
         height: 344px
+        padding: 15px
 
       select
         height: 44px
         width: 100%
-        max-width: 97px
+        max-width: 110px
 
 
       div.label
@@ -205,7 +315,10 @@ div.blocks
         -webkit-appearance: none
 
       input[type="checkbox"]:checked
-        background-color: $navy
+        // background: $navy
+        background-image: url('../assets/svg/svg_close.svg')
+        background-size: 25px 25px
+        background-position: center
 
     span.wpcf7-list-item-label
       padding-left: 20px
@@ -225,7 +338,6 @@ div.blocks
       width: 24px
       height: 24px
       background: url("../assets/svg/svg_calendar.svg")
-
 
 
   div.block.edgar
@@ -323,9 +435,14 @@ div.blocks
 
       &:hover
         border: none
-        
+
         a
           color: $gold
+
+  p.text-right
+    text-align: right
+    +tablet
+      text-align: left
 
 div.block.danny
   h3.form-head
@@ -375,10 +492,25 @@ div.block.feingold
   span.link
     border-bottom: 2px solid $navy
 
+    &:hover
+      border: none
+      color: $gold
+
+  div.section:not(#sec-0)
+    h3.head
+      cursor: pointer
+
   div.section#sec-0
     span.link
+      color: $navy
       border: none
       text-transform: capitalize
+
+  div.section.expand
+    span.link
+      border: none
+      color: $gold
+
 
 
 div.block.gargoyle,
