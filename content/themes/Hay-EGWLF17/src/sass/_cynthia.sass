@@ -1,0 +1,40 @@
+/* _cynthia.scss */
+
+/* PAGE CONTEXT -> For positioning items */
+/* includes positioning styles like display, padding, margin, height */
+/* INCEPTION RULE: DO NOT nest more than 4  */
+
+div.block.cynthia
+    position: relative
+    width: 100%
+    max-width: 930px
+    margin: 150px auto
+    +tiny
+      	margin: 90px auto
+
+    div.assets
+      	+img
+      	position: relative
+      	margin: 40px auto
+      	width: 100%
+      	z-index: 10
+      	+tiny
+        	max-height: 40vh
+
+    div.icon
+      	+img
+      	position: absolute
+      	top: -40px
+      	left: 120px
+      	width: 100%
+      	z-index: 10
+      	+tiny
+        	left: 40px
+        	max-height: 80px
+        	width: 80px
+
+
+
+/* OBJECTS -> For styling objects */
+/* Includes cosmetic styles like color, typography, and borders */
+/* INCEPTION RULE: DO NOT nest more than 4 */

@@ -12,6 +12,11 @@ div.menu-nav
     margin: 150px auto 0
     position: relative
     z-index: 100
+    +tablet
+        max-width: 420px
+    +tiny
+        max-width: 280px
+        margin-top: 90px
 
     div.menu-link
         flex: 0 0 33%
@@ -38,14 +43,42 @@ div.menu
     margin: 0 auto 150px 
     position: relative
     z-index: 100
+    +tablet
+        width: 94%
+    +tiny
+        width: 100%
+        padding-left: 40px
+        padding-right: 40px
+        margin-bottom: 90px
 
-    h3.cat-head
+    div.cat-head
+        width: 100%
+        position: relative
+
+    div.cat-head h3
         display: block
+        position: relative
         width: 100%
         height: 40px
         padding-top: 6px
         margin-top: 50px
         margin-bottom: 30px
+        z-index: 30
+        +tablet
+            margin-top: 10px
+
+    div.icon 
+        position: absolute
+        top: -15%
+        right: 40px
+        width: 100%
+        z-index: 15
+        +tablet
+            top: -50%
+
+    p.descriptor
+        position: relative
+        z-index: 30
 
     p.descriptor.desc
         margin-bottom: 40px
@@ -71,6 +104,9 @@ div.menu
 
     span.note
         margin-left: -10px
+
+    div.note
+        margin-top: 40px
 
 
 
@@ -115,7 +151,7 @@ div.menu
     @extend %BodyMono
     color: $navy
 
-    h3.cat-head
+    div.cat-head h3
         @extend %LinkGoth
         font-size: 0.8rem
         text-transform: uppercase
@@ -127,5 +163,3 @@ div.menu
             background-color: $navy
 
   
-
-

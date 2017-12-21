@@ -1,0 +1,94 @@
+/* _feingold.scss */
+
+/* PAGE CONTEXT -> For positioning items */
+/* includes positioning styles like display, padding, margin, height */
+/* INCEPTION RULE: DO NOT nest more than 4  */
+
+div.block.feingold
+    width: 100%
+    max-width: 930px
+    margin: 150px auto
+    +tiny
+        margin: 90px auto
+        padding-left: 40px
+        padding-right: 40px
+
+    div.section
+        height: 100%
+        max-height: 40px
+        transition: max-height 1s ease
+        overflow: hidden
+        margin-bottom: 40px
+        +tiny
+            max-height: 63px
+            margin-bottom: 30px
+
+    div.section.expand,
+    div.section#sec-0
+        max-height: 2000px
+
+    h3.head,
+    div.content
+        width: 100%
+        max-width: 630px
+        margin-right: 73px
+        margin-left: auto
+        margin-bottom: 47px
+
+    h3.sec-head
+        margin-top: 40px
+        margin-bottom: 20px
+
+    h3.head
+        height: 40px
+        +tiny
+            height: 100%
+            margin-bottom: 30px
+
+    p
+        margin-top: 20px
+
+    span.link
+        padding-bottom: 0
+        &:hover
+            padding-bottom: 2px
+
+/* OBJECTS -> For styling objects */
+/* Includes cosmetic styles like color, typography, and borders */
+/* INCEPTION RULE: DO NOT nest more than 4 */
+
+div.block.feingold
+    h3.head,
+    h3.sec-head
+        text-transform: uppercase
+
+    h3.sec-head
+        @extend %LinkGoth
+        font-size: 0.9rem
+        +tiny
+            font-size: 0.8rem
+
+    span.link
+        border-bottom: 2px solid $navy
+        &:hover
+            border: none
+            color: $gold
+
+    div.section:not(#sec-0)
+        h3.head
+            cursor: pointer
+
+    div.section#sec-0
+        span.link
+            color: $navy
+            border: none
+            text-transform: capitalize
+
+    div.section.expand
+        span.link
+            border: none
+            color: $gold
+
+    h3.head
+        +tiny
+            line-height: 2rem

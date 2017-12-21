@@ -19,7 +19,7 @@ $hours = get_field('hours','options'); ?>
 		<div class="left-wrapper">
   		<div class="booking-comp">
   			<div class="booking button">
-  				<a href="">book a table</a>
+  				<a href="https://www.opentable.com/restaurant/profile/988627/reserve?restref=988627&lang=en-US" target="_blank">book a table</a>
   			</div>
   			<h2><?php echo $tagline; ?></h2>
 		  </div>
@@ -42,43 +42,47 @@ $hours = get_field('hours','options'); ?>
 		  </div>
   	</div> 
   	<div class="right-wrapper">
-  		<h2>Contact</h2>
-  		<p class="title">Email us</p>
-  		<p>
-  			<span class="link">
-    			<a href="mailto:<?php echo $email; ?>">
-      			<?php echo $email; ?>
-    		  </a>
-    	  </span>
-    	</p>
-  		<p class="title">Give us a call</p>
-  		<p>
-  			<span class="link">
-  				<a href="tel:<?php echo $tel; ?>">
-      			<?php echo print_tel($tel); ?>
-    	   	</a>
-  	   </span>
-  	  </p>
-  		<div class="social-row">
-  			<?php if(have_rows('social_media', 'options')) :
-  			  while(have_rows('social_media', 'options')) :
-  			    the_row(); 
-  			    $social_icon = get_sub_field('icon');
-  			    $social_url = get_sub_field('url'); ?>
-  			    <div class="social">
-  			    	<a href="<?php echo $social_url; ?>" target="_blank">
-  			    	  <?php echo file_get_contents($social_icon['url']); ?>
-  			      </a>
-  			    </div>
-        <?php endwhile; endif; ?>
-  		</div>
-  		<div class="gift button">
-  			<a href="">Gift Cards</a>
-  		</div>
+      <div class="half">
+    		<h2>Contact</h2>
+    		<p class="title">Email us</p>
+    		<p>
+    			<span class="link">
+      			<a href="mailto:<?php echo $email; ?>">
+        			<?php echo $email; ?>
+      		  </a>
+      	  </span>
+      	</p>
+    		<p class="title">Give us a call</p>
+    		<p>
+    			<span class="link">
+    				<a href="tel:<?php echo $tel; ?>">
+        			<?php echo print_tel($tel); ?>
+      	   	</a>
+    	   </span>
+    	  </p>
+      </div>
+      <div class="half">
+    		<div class="social-row">
+    			<?php if(have_rows('social_media', 'options')) :
+    			  while(have_rows('social_media', 'options')) :
+    			    the_row(); 
+    			    $social_icon = get_sub_field('icon');
+    			    $social_url = get_sub_field('url'); ?>
+    			    <div class="social">
+    			    	<a href="<?php echo $social_url; ?>" target="_blank">
+    			    	  <?php echo file_get_contents($social_icon['url']); ?>
+    			      </a>
+    			    </div>
+          <?php endwhile; endif; ?>
+    		</div>
+    		<div class="gift button">
+    			<a href="">Gift Cards</a>
+    		</div>
+      </div>
   	</div> 		
 	</div>
 	<div class="last-row">
 		<p>copyright haymaker <?php echo date('Y'); ?></p>
-		<p>site by <a href="https://sdcopartners.com">sdco partners</a></p>
+		<p>site by <a href="https://sdcopartners.com" target="_blank">sdco partners</a></p>
 	</div>
 </foot>

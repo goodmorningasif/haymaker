@@ -1,0 +1,146 @@
+/* _berwyn.scss */
+
+/* PAGE CONTEXT -> For positioning items */
+/* includes positioning styles like display, padding, margin, height */
+/* INCEPTION RULE: DO NOT nest more than 4  */
+
+div.block.berwyn
+    +col($b: 0)
+    width: 100%
+    max-width: 1046px
+    margin: -25px auto
+    +tablet
+        max-width: 94%
+    +tiny
+        +col($a:1,$b:0)
+        +flex
+        max-width: 70vw
+        margin-top: 90px
+        // 
+
+    div.assets,
+    div.icon
+        +img
+        width: 100%
+
+    div.text-block
+        position: relative
+
+    p
+        position: relative
+        z-index: 100
+
+    div.assets.berwyn_a
+        margin-top:  178px
+        margin-left: 116px
+        +tablet
+            margin-left: 40px
+        +tiny
+            order: 1
+            background-size: contain
+            background-position: 35% 0
+            max-height: 40vh
+            //
+
+    div.assets.berwyn_b
+        margin-top: 217px
+        +tiny
+            order: 3
+            max-height: 27vh
+            // 
+    
+    div.text-block.berwyn_a
+        margin-top: 170px
+        margin-left: 116px
+        margin-right: 58px
+        min-height: 252px
+        +tablet
+            margin-left: 80px
+        +tiny
+            order: 4
+            min-height: 182px
+            // 
+
+        p:first-of-type
+            padding-top: 100px
+            +tiny
+                padding-top: 40px
+                padding-left: 30px
+                margin-bottom: 20px
+                // 
+
+        p.text-fm
+            +tiny
+                padding-left: 30px
+                // 
+
+    div.text-block.berwyn_b
+        +tiny
+            order: 2
+            // 
+
+        p:first-of-type
+            padding-left: 58px
+            +tiny
+                padding-top: 40px
+                padding-left: 30px
+                // 
+
+        p.text-fm 
+            padding-left: 58px
+            margin-bottom: 80px
+
+        p.text-right
+            +tiny
+                padding-left: 40px
+                // 
+
+    div.text-block.berwyn_b.has-icon
+        p:first-of-type
+            margin-top: 150px
+            padding-top: 70px
+            padding-left: 58px
+            +tiny
+                margin-top: 0
+                padding-top: 100px
+                padding-left: 30px
+
+    div.text-block.berwyn_b.no-icon
+        p.text-fm
+            +tiny
+                margin-bottom: 40px
+
+
+    div.icon.berwyn_a
+        +img
+        position: absolute
+        top: 0
+        left: 18px
+        z-index: 10
+        +tiny
+            left: 10px
+            top: 40px
+            width: 58px
+            max-height: 160px
+            // 
+
+    div.icon.berwyn_b
+        position: absolute
+        top: 30px
+        left: 30%
+        margin: 0 auto
+        z-index: 10
+
+    div.assets.berwyn_a,
+    div.assets.berwyn_b,
+    div.text-block.berwyn_a,
+    div.text-block.berwyn_b
+        +tiny
+            flex: 0 0 100%
+            margin-top: 0
+            margin-left: 0
+            // 
+
+/* OBJECTS -> For styling objects */
+/* Includes cosmetic styles like color, typography, and borders */
+/* INCEPTION RULE: DO NOT nest more than 4 */

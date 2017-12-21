@@ -1,0 +1,46 @@
+/* _edgar.scss */
+
+/* PAGE CONTEXT -> For positioning items */
+/* includes positioning styles like display, padding, margin, height */
+/* INCEPTION RULE: DO NOT nest more than 4  */
+
+div.block.edgar
+    +flex
+    width: 100%
+    max-width: 814px
+    margin: 150px auto
+    +tablet
+        max-width: 94%
+    +tiny
+        margin: 90px auto
+        padding-left: 40px
+        padding-right: 40px
+        max-width: 100%
+   
+    div.assets
+        +img
+        width: 100%
+        +tiny
+            // +img($b: left, $c: contain)
+            max-height: 344px
+
+    div.assets,
+    div.text-block
+        flex: 0 0 50%
+        +tiny
+            flex: 0 0 100%
+
+    div.text-block
+        margin-top: 160px
+        padding-left: 40px
+        z-index: 100
+        +tiny
+            margin-top: 40px
+            padding-left: 0
+            max-width: 290px
+
+            
+
+/* OBJECTS -> For styling objects */
+/* Includes cosmetic styles like color, typography, and borders */
+/* INCEPTION RULE: DO NOT nest more than 4 */

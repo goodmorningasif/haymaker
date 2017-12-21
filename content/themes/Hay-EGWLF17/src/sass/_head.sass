@@ -63,7 +63,7 @@ div.nav.top-right
   svg
     width: 48px
     height: 48px
-    +tablet
+    +tiny
       width: 30px
       height: 30px
       // 
@@ -79,14 +79,15 @@ div.nav.top-middle
   padding-top: 18px
   z-index: 15
   transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1)
-  +tablet
+  +tiny
+    padding-top: 0
     left: calc(50% - 92px)
 
   svg
     width: 264px
     height: 22px
     transition: transform 0.5s cubic-bezier(0.645, 0.045, 0.355, 1)
-    +tablet
+    +tiny
       width: 184px
       height: 15px
       // 
@@ -95,6 +96,7 @@ div.nav.close
   width: 35px
   height: 35px
   +tablet
+  +tiny
     width: 20px
     height: 20px
     // 
@@ -106,37 +108,50 @@ div.nav.close#contact-close
 div.nav.bottom-left,
 div.nav.top-right,
 div.nav.close#contact-close
-  +tablet
+  +tiny
     top: 20px
     // 
 
 div.nav.top-right
-  +tablet
+  +tiny
     right: 20px
     // 
 
 div.nav.bottom-left
-  +tablet
+  +tiny
     left: 20px
+    bottom: initial
     // 
 
-div.nav.top-left,
-div.nav.bottom-right
-  +tablet
+div.nav.top-left
+  +tiny
     display: none
     // 
+
+div.nav.bottom-right
+  +tiny
+    transform: rotate(90deg);
+    right: -10px
+    bottom: 50%
+    &:hover
+      bottom: 50%
+  
 
 /* JS TOGGLE STYLES */
 div.container div.pinned
   transform: translate(0, 350px)
   +tablet
-    transform: translate(0, 135px)
+    transform: translate(0, 165px)
+  +tiny
+    transform: translate(0, 130px)
     // 
 
   svg
     transform: scale(2.42)
     +tablet
-      transform: scale(1.15)
+      transform: scale(2.15)
+    +tiny
+      transform: scale(1.29)
       // 
 
 div.container div.rotate svg
@@ -157,22 +172,28 @@ div.pre-comp
   max-width: 812px
   margin: 0 auto 300px
   +tablet
-    margin-bottoM: 200px
-    max-width: 80vw
+    margin-bottom: 200px
+    max-width: 500px
+  +tiny
+    margin-bottom: 200px
+    max-width: 100vw
     // 
 
   div.assets,
   div.text-block
     flex: 0 0 auto
+    +tablet
+      flex: 0 0 50%
 
   div.assets
     +img
     width: 100%
     margin-right: 20px
     +tablet
-      flex: 0 0 60%
       margin-right: 0
-      max-height: 18vh
+      max-height: 120px
+    +tiny
+      flex: 0 0 50%
       transform: translate(-20px,0)
       // 
 
@@ -180,9 +201,10 @@ div.pre-comp
     position: relative
     margin-top: auto
     z-index: 100
-    +tablet
-      flex: 0 0 40%
-      transform: translate(40px,170px)
+    +tiny
+      flex: 0 0 50%
+      margin-top: 0
+      transform: translate(40px,200px)
       // 
 
 
@@ -202,7 +224,7 @@ div.nav.hamburger-menu
   transform: translate(140vw, 0)
 
   ul.menu-links
-    width: 270px
+    width: 290px 
 
   li.list-link span.link
     &:hover
@@ -219,6 +241,7 @@ div.info.contact
   div
     width: 740px
     +tablet
+    +tiny
       width: 80vw
 
   div.wrapper span.link
@@ -259,6 +282,11 @@ div.nav.bottom-right
     &:hover
       color: $gold
 
+div.nav.bottom-left,
+div.nav.bottom-right
+  +tiny
+    font-size: 0.95rem
+
 div.nav.close
   cursor: pointer
 
@@ -266,8 +294,6 @@ div.pre-comp
   div.text-block
     @extend %HeadlineSerif
     color: $navy
-
-
 
 div.nav.hamburger-menu,
 div.info.contact
@@ -302,9 +328,9 @@ div.info.contact
   @extend %MenuSerif
   color: $navy
   text-align: center
-  +tablet
-    font-size: 1.7rem
-    line-height: 2.4rem
+  +tiny
+    font-size: 1.1rem
+    line-height: 1.6rem
 
   div.wrapper span.link
     &:hover

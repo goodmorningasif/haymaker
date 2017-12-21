@@ -8,8 +8,15 @@ footer.foot
     position: relative
     width: 100%
     max-width: 930px
-    margin: 150px auto
+    margin: 150px auto 50px
     z-index: 100
+    +tablet
+        max-width: 94%
+    +tiny
+        max-width: 100%
+        margin-top: 90px
+        padding-left: 40px
+        padding-right: 40px
 
     div.first-row,
     div.last-row,
@@ -22,8 +29,17 @@ footer.foot
         padding-top: 6px
         padding-bottom: 6px
 
+        h3,
+        p
+            flex: 0 0 50%
+            +tiny
+                flex: 0 0 100%
+
     div.left-wrapper
         flex: 0 0 65%
+        +tablet
+            flex: 0 0 100%
+            // 
 
     div.booking-comp
         +flex($b: center)
@@ -35,12 +51,29 @@ footer.foot
         flex: 0 0 50%
         padding-top: 25px
         padding-bottom: 25px
+        +tiny
+            flex: 0 0 100%
 
         h2
             margin-bottom: 15px
 
+    div.directions-comp
+        +tiny
+            padding-left: 0
+            padding-right: 0
+            padding-top: 0
+            padding-bottom: 30px
+            margin-top: 30px
+            margin-bottom: 0      
+            // 
+
     div.hours-comp
         padding-left: 35px
+        +tiny
+            padding: 0
+            margin-top: 30px
+            margin-bottom: 30px
+            // 
 
     div.right-wrapper
         flex: 0 0 35%
@@ -48,11 +81,23 @@ footer.foot
         padding-top: 25px
         padding-left: 35px
         padding-bottom: 35px
+        +tablet 
+            +flex
+            flex: 0 0 100%
+            padding-left: 0
+
+    div.half
+        +tablet
+            flex: 0 0 50%
 
     div.social-row
         +flex($b: flex-start)
         margin-top: 15px
         margin-bottom: 15px
+        +tablet
+            margin-left: 20px
+        +tiny
+            margin-left: 0
 
     div.social
         flex: 0 0 21px
@@ -65,9 +110,24 @@ footer.foot
     div.button
         display: inline-block
         padding: 6px 18px
+        +tiny
+            width: 175px
+
+        a
+            display: block
+            width: 100%
+            margin: 0 auto
+            
+
+    div.booking-comp h2
+        +tablet
+            flex: 0 0 100%
 
     div.booking-comp div.button
         margin-right: 40px
+        +tiny
+            margin-right: 0
+            margin-bottom: 10px
 
     span.link
         padding-bottom: 3px
@@ -76,6 +136,8 @@ footer.foot
     div.map-link
         margin-top: 25px
         margin-bottom: 25px
+        +tiny
+            margin-bottom: 0
 
     p.title
         margin-top: 13px
@@ -89,11 +151,26 @@ footer.foot
 footer.foot
     color: $navy
     border-top: 12px solid $navy
+    +tiny
+        border-top: none
+    div.first-row
+        +tiny
+            border-top: 12px solid $navy
 
-    div.first-row h3,
-    div.last-row p
-        @extend %LinkGoth
-        text-transform: uppercase
+    div.first-row,
+    div.last-row
+        p:last-child,
+        h3:last-child
+            text-align: right
+            +tiny
+                text-align: center
+
+        p,
+        h3
+            @extend %LinkGoth
+            text-transform: uppercase
+            +tiny
+                text-align: center
 
     div.last-row p
         font-size: 0.4rem
@@ -101,13 +178,24 @@ footer.foot
     div.content
         border-top: 2px solid $navy
 
-    div.left-wrapper,
-    div.directions-comp
+    div.left-wrapper
         border-right: 2px solid $navy
+        +tablet
+            border-right: 0
+            border-bottom: 2px solid $navy
 
     div.content,
     div.booking-comp
         border-bottom: 2px solid $navy
+
+    div.booking-comp h2
+        text-align: center
+
+    div.directions-comp
+        border-right: 2px solid $navy
+        +tiny
+            border-right: 0
+            border-bottom: 2px solid $navy
 
     h2
         @extend %HeadlineSerif
@@ -127,6 +215,7 @@ footer.foot
 
         a 
             color: $cream
+            text-align: center
 
         &:hover
             background-color: $gold
@@ -143,7 +232,6 @@ footer.foot
 
             a
                 color: $gold
-
 
 div.social
     &:hover

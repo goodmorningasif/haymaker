@@ -5,408 +5,61 @@
 /* INCEPTION RULE: DO NOT nest more than 4  */
 
 div.blocks
-  width: 100%
-  max-width: 1280px
-  margin: 150px auto
-  +tablet
-    margin-top: 90px
-
-  div.text-block
-    p
-      margin-bottom: 40px
-
-    p:last-child()
-      margin-bottom: 0
-
-  p.text-fm 
-    position: relative
-    z-index: 100
-
-  p.text-right
-    margin-top: 90px
-    +tablet
-      margin-top: 0 
-
-  span.link
-    padding-bottom: 5px
-    
-    &:hover
-      padding-bottom: 2px
-
-
-  /* BLOCK: ARGYLE */
-  div.block.argyle
-    +flex
     width: 100%
-    max-width: 930px
+    max-width: 1280px
     margin: 150px auto
-    +tablet
-      max-width: 70vw
-      margin: 90px auto
+    +tiny
+        margin: 90px auto
 
-    div.assets
-      +img
-      flex: 0 0 580px
-      width: 100%
-      margin-left: 58px
-      +tablet
-        flex: 0 0 100%
-        order: 2
-        margin-left: 0
-        max-height: 200px
 
     div.text-block
-      flex: 0 0 250px
-      +tablet
-        flex: 0 0 155px
-        margin-left: auto
+        p
+            margin-bottom: 40px
 
+        p:last-child()
+            margin-bottom: 0
 
-  /* BLOCK: BERWYN */
-  div.block.berwyn
-    +col($b: 0)
-    width: 100%
-    max-width: 1046px
-    margin: -25px auto
-    +tablet
-      +col($a:1,$b:0)
-      +flex
-      max-width: 70vw
-      margin-top: 90px
-      // 
-
-    div.assets,
-    div.icon
-      +img
-      width: 100%
-
-    div.text-block
-      position: relative
-
-      p
+    p.text-fm 
         position: relative
         z-index: 100
 
-    div.assets.berwyn_a
-      margin-top:  178px
-      margin-left: 116px
-      +tablet
-        order: 1
-        background-size: contain
-        background-position: 35% 0
-        max-height: 40vh
-        //
+    p.text-squeeze
+        padding: 0 70px
+        +tiny
+            padding: 0
 
-    div.assets.berwyn_b
-      margin-top: 217px
-      +tablet
-        order: 3
-        max-height: 27vh
-        // 
-      
-    div.text-block.berwyn_a
-      margin-top: 170px
-      margin-left: 116px
-      margin-right: 58px
-      min-height: 252px
-      +tablet
-        order: 4
-        // 
+    p.text-corner-right
+        padding-left: 100px
+        padding-top: 50px
+        +tiny
+            padding-left: 0
+            padding-top: 30px
 
-      p:first-of-type
-        padding-top: 100px
-        +tablet
-          padding-top: 40px
-          padding-left: 30px
-          // 
+    p.text-right
+        margin-top: 90px
+        +tiny
+            margin-top: 0 
 
-      p.text-fm
-        +tablet
-          padding-left: 40px
-          // 
+    p.text-space-out
+        margin-top: 90px
+        +tiny
+            margin-top: 30px
+            padding-left: 40px
 
-    div.text-block.berwyn_b
-      +tablet
-        order: 2
-        // 
-   
-      p:first-of-type
-        padding-left: 58px
-        +tablet
-          padding-left: 40px
-          // 
-
-      p.text-fm 
-        padding-left: 58px
-
-      p.text-right
-        +tablet
-          padding-left: 40px
-          // 
-
-    div.text-block.berwyn_b.has-icon
-      p:first-of-type
-        margin-top: 150px
-        padding-top: 70px
-        padding-left: 58px
-        +tablet
-          margin-top: 0
-          padding-top: 100px
-          padding-left: 40px
-
-    div.icon.berwyn_a
-      +img
-      position: absolute
-      top: 0
-      left: 18px
-      z-index: 10
-      +tablet
-        left: 10px
-        top: 40px
-        width: 58px
-        max-height: 160px
-        // 
-
-    div.icon.berwyn_b
-      position: absolute
-      top: 30px
-      left: 30%
-      margin: 0 auto
-      z-index: 10
-
-    div.assets.berwyn_a,
-    div.assets.berwyn_b,
-    div.text-block.berwyn_a,
-    div.text-block.berwyn_b
-      +tablet
-        flex: 0 0 100%
-        margin-top: 0
-        margin-left: 0
-        // 
+    span.link
+        padding-bottom: 5px
+        &:hover
+            padding-bottom: 2px
 
 
-  /* BLOCK: CYNTHIA */
-  div.block.cynthia
-    position: relative
-    width: 100%
-    max-width: 930px
-    margin: 150px auto
-    +tablet
-      margin: 90px auto
+@import 'argyle'
+@import 'berwyn'
+@import 'cynthia'
+@import 'danny'
+@import 'edgar'
+@import 'feingold'
+@import 'gargoyle'
 
-    div.assets
-      +img
-      position: relative
-      margin: 40px auto
-      width: 100%
-      z-index: 10
-      +tablet
-        max-height: 40vh
-
-    div.icon
-      +img
-      position: absolute
-      top: -40px
-      left: 120px
-      width: 100%
-      z-index: 10
-      +tablet
-        left: 40px
-        max-height: 80px
-        width: 80px
-
-
-
-  div.block.danny
-    position: relative
-    width: 100%
-    max-width: 930px
-    margin: 150px auto
-
-    div.text-block > p
-      width: 100%
-      max-width: 700px
-      margin: 0 auto
-
-    p.text-fm 
-      padding-left: 100px
-
-    p
-      position: relative
-      z-index: 100
-
-    div.icon
-      position: absolute
-      width: 100%
-      top: -50px
-      right: 150px
-      z-index: 10
-
-  div.block.danny:nth-of-type(2n+1)
-    div.icon
-      right: initial
-      left: 270px
-      top: -100px
-
-  div.forms
-    +flex
-    width: 100%
-    margin: 8px auto 0
-    padding: 70px 58px
-    position: relative
-    z-index: 100
-
-    div.form 
-      input
-        width: 100%
-        height: 44px
-        padding: 0 15px
-
-      textarea
-        width: 100%
-        max-width: 678px
-        height: 344px
-        padding: 15px
-
-      select
-        height: 44px
-        width: 100%
-        max-width: 110px
-
-
-      div.label
-        margin-top: 15px
-        margin-bottom: 40px
-
-      div.label.guidance
-        margin-top: -20px
-        margin-bottom: 15px    
-
-    div.form.half
-      flex: 0 0 46%
-
-    div.form.full
-      flex: 0 0 100%
-      padding-right:
-
-      input
-        max-width: 678px
-
-    div.form.time
-      flex: 0 0 30%
-
-    div.form.box
-      flex: 0 0 100%
-      margin-bottom: 40px
-
-      input[type="checkbox"]
-        width: 25px
-        height: 23px
-        padding: 0
-      
-      span.wpcf7-list-item.first.last
-        +flex($b: flex-start)
-
-      input[type="checkbox"],
-      span.wpcf7-list-item-label
-        flex: 0 0 auto
-
-      input[type="checkbox"]
-        -webkit-appearance: none
-
-      input[type="checkbox"]:checked
-        // background: $navy
-        background-image: url('../assets/svg/svg_close.svg')
-        background-size: 25px 25px
-        background-position: center
-
-    span.wpcf7-list-item-label
-      padding-left: 20px
-      margin-top: -3px
-
-    input[type="submit"]#form-submit
-      padding: 6px 18px
-      -webkit-appearance: none
-      border-radius: 0
-
-    input[type="date"]:after
-      display: block
-      content: " "
-      position: absolute
-      top: -13px
-      right: -44px
-      width: 24px
-      height: 24px
-      background: url("../assets/svg/svg_calendar.svg")
-
-
-  div.block.edgar
-    +flex
-    width: 100%
-    max-width: 814px
-    margin: 150px auto
-   
-    div.assets
-      +img
-      width: 100%
-
-    div.assets,
-    div.text-block
-      flex: 0 0 50%
-
-    div.text-block
-      margin-top: 160px
-      padding-left: 40px
-      z-index: 100
-
-
-  div.block.feingold
-    width: 100%
-    max-width: 930px
-    margin: 150px auto
-
-    div.section
-      height: 100%
-      max-height: 40px
-      transition: max-height 1s ease
-      overflow: hidden
-      margin-bottom: 40px
-
-    div.section.expand,
-    div.section#sec-0
-      max-height: 2000px
-
-    h3.head,
-    div.content
-      width: 100%
-      max-width: 630px
-      margin-right: 73px
-      margin-left: auto
-      margin-bottom: 47px
-
-    h3.sec-head
-      margin-top: 40px
-      margin-bottom: 20px
-
-    h3.head
-      height: 40px
-
-    p
-      margin-top: 20px
-
-
-  div.block.gargoyle
-    +flex
-    width: 100%
-    max-width: 930px
-    margin: 150px auto
-
-    div.section
-      flex: 0 0 275px
-
-    h3.head
-      margin-top: 40px
-      margin-bottom: 30px
 
 
 /* OBJECTS -> For styling objects */
@@ -416,107 +69,42 @@ div.blocks
 
 div.blocks
 
-  div.text-block 
-    p
-      @extend %HeadlineSerif
-      color: $navy
+    div.text-block 
+        p
+            @extend %HeadlineSerif
+            color: $navy
   
-    p.text-fm
-      @extend %BodyMono
-
-    a
-      @extend %LinkGoth
-      text-align: right
-      color: $navy
-      text-transform: uppercase
-
-    span.link
-      border-bottom: 2px solid $navy
-
-      &:hover
-        border: none
+        p.text-fm
+            @extend %BodyMono
 
         a
-          color: $gold
+            @extend %LinkGoth
+            text-align: right
+            color: $navy
+            text-transform: uppercase
 
-  p.text-right
-    text-align: right
-    +tablet
-      text-align: left
+        span.link
+            border-bottom: 2px solid $navy
+            &:hover
+                border: none
+                a
+                    color: $gold
 
-div.block.danny
-  h3.form-head
-    @extend %HeadlineSerif
+    p.text-right
+        text-align: right
+        +tiny
+            text-align: left
 
-  div.forms
-    border-top: 2px solid $navy
+    p.text-squeeze
+        text-align: center
 
-    div.label
-      @extend %LinkGoth
-      text-transform: uppercase
-
-    div.form 
-      input,
-      textarea,
-      select
-        @extend %BodyMono
-        color: $navy
-        border: 2px solid $navy
-        background: transparent
-
-    div.form.box
-      span.wpcf7-list-item-label
-        @extend %HeadlineSerif
-        font-size: 1.4rem
-  
-  input[type="submit"]#form-submit
-    @extend %LinkGoth
-    background-color: $navy
-    color: $cream
-    text-transform: uppercase
-    border: none
-
-    &:hover
-      background-color: $gold
-
-
-div.block.feingold
-  h3.head,
-  h3.sec-head
-    text-transform: uppercase
-
-  h3.sec-head
-    @extend %LinkGoth
-    font-size: 0.9rem
-
-  span.link
-    border-bottom: 2px solid $navy
-
-    &:hover
-      border: none
-      color: $gold
-
-  div.section:not(#sec-0)
-    h3.head
-      cursor: pointer
-
-  div.section#sec-0
-    span.link
-      color: $navy
-      border: none
-      text-transform: capitalize
-
-  div.section.expand
-    span.link
-      border: none
-      color: $gold
-
-
+    p.text-space-out
+        text-align: right
 
 div.block.gargoyle,
 div.block.feingold
-  h3.head
-    @extend %HeadlineSerif
+    h3.head
+        @extend %HeadlineSerif
 
-  div.content p
-    @extend %BodyMono
+    div.content p
+        @extend %BodyMono

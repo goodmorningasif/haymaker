@@ -1,0 +1,39 @@
+/* _gargoyle.scss */
+
+/* PAGE CONTEXT -> For positioning items */
+/* includes positioning styles like display, padding, margin, height */
+/* INCEPTION RULE: DO NOT nest more than 4  */
+
+div.block.gargoyle
+    +flex
+    width: 100%
+    max-width: 930px
+    margin: 150px auto
+    +tablet
+        width: 94%
+        margin: 90px auto -90px
+    +tiny
+        width: 100%
+        padding-left: 40px
+        padding-right: 40px
+
+    div.assets
+        +img
+
+    div.section
+        flex: 0 0 275px
+        +tablet
+            flex: 0 0 32%
+        +tiny
+            flex: 0 0 100%
+            margin-bottom: 90px
+
+    h3.head
+        margin-top: 40px
+        margin-bottom: 30px
+
+        
+
+/* OBJECTS -> For styling objects */
+/* Includes cosmetic styles like color, typography, and borders */
+/* INCEPTION RULE: DO NOT nest more than 4 */

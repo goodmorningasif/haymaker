@@ -16,7 +16,7 @@ $menus = $menu_query->posts; ?>
 		$link = get_permalink( $menu ); ?>
 		<div class="menu-link">
 			<span class="link" id="pg-<?php echo strtolower($menu->post_title); ?>">
-		  		<a href="<?php echo $link; ?>">
+		  		<a href="<?php echo $link; ?>" data-ajax="<?php echo $menu->post_name; ?>" class="ajax-load">
 		  			<?php echo $menu->post_title; ?>
 		  		</a>
 			<span>

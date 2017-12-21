@@ -3,19 +3,32 @@
   * Section =>  Items
   */ 
 
+$assets = get_field( "assets" );
+$icon = $assets[ "icon" ];
 
 if ( have_rows( "menu_repeater" ) ) :
 
 	$count = 0;
-	$length =  count( get_field_object( "menu_repeater" ) );
+	$menu_obj = get_field_object( "menu_repeater" );
+	$length =  count( $menu_obj["value"] ) - 1;
 
 	while ( have_rows( "menu_repeater" ) ) : 
 		the_row(); 
 		$cat_head = get_sub_field( "category_header" ); ?>
+		
+		<div class="cat-head">
+			<h3	class="cat-head">
+				<?php echo $cat_head; ?>
+			</h3>
+			<?php if ($count === $length && $icon ) : ?>
+				<div class="icon" 
+					style="background-image: url('<?php echo $icon["url"]; ?>');
+					max-width: <?php echo $icon["width"]; ?>px;
+					height: <?php echo $icon["height"]; ?>px; ">
+				</div>
+			<?php endif; ?>
+	    </div>
 
-		<h3	class="cat-head <?php echo $count; ?>">
-			<?php echo $cat_head; ?>
-		</h3>
         
         <div class="item">
 		<?php if ( have_rows( "items") ) :
@@ -50,6 +63,8 @@ if ( have_rows( "menu_repeater" ) ) :
 	<?php $count++;endwhile; 
 endif; ?>
 
-<div class="note">
-	<span class="asterix">*</span><?php echo $note; ?>
-</div>
+<?php if ( $note ) : ?>
+	<div class="note">
+		<span class="asterix">*</span><?php echo $note; ?>
+	</div>
+<?php endif; ?>

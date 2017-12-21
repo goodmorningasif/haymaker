@@ -9,11 +9,29 @@ div.press
     width: 100%
     max-width: 812px
     margin: 150px auto
+    +tablet
+      width: 94%
+    +tiny
+        padding-left: 40px
+        padding-right: 40px
+        margin: 90px auto
+
+    div.main-image
+        @media(max-width: 850px)
+            max-height: 250px
+            order: 2
 
     div.main-image,
     div.press-clipping
+        +img
         flex: 0 0 50%
         margin-bottom: 150px
+        @media(max-width: 850px)
+            flex: 0 0 100%
+            margin-bottom: 0
+            margin-top: 0
+            max-height: 344px;
+
 
         h3,
         h2,
@@ -29,11 +47,18 @@ div.press
 
     div.press-clipping
         margin-top: 140px
+        @media(max-width: 850px) 
+            margin-bottom: 90px
+            margin-top: 0
+            order: 1
 
     div.press-clipping ~ div.press-clipping
         flex: 0 0 100%
         margin-bottom: 0
         margin-top: 0
+        @media(max-width: 850px)
+            margin-top: 90px
+            order: 3
 
         h3,
         div.publication
@@ -45,6 +70,8 @@ div.press
         h3,
         div.publication
             padding-right: 27px
+            +tiny
+                padding-right: 0
    
     // odd press clippings excluding #1
     div.press-clipping:nth-child(2n+4)
@@ -52,6 +79,9 @@ div.press
         div.publication
             margin-left: auto
             padding-left: 27px
+            +tiny
+                margin-left: 0
+                padding-left: 0
 
     span.link
         &:hover
@@ -78,7 +108,6 @@ div.press
         padding-top: 5px;
         padding-bottom: 5px;
         border-bottom: 2px solid $navy
-
         &:hover
             border: none
 
