@@ -82,24 +82,6 @@ const burgerLogic = {
         $close.classList.remove( "active" );
         $menu.classList.remove( "active" );
     },
-
-    init() {
-        this.$burger.addEventListener( "click", ( e ) => {
-            e.preventDefault();
-            this.toggleActive();
-            if ( !this.$hamMenu.classList.contains( "active" ) ) {
-                this.openHams();
-                setTimeout( () => {
-                    logoIndexComp.close();
-                }, 500 );
-            } else {
-                this.closeHams();
-                logoIndexComp.open();
-                // this.closeContact();
-                contactLogic.toggleContact();
-            }
-        } );
-    },
 };
 
 /*
@@ -115,25 +97,45 @@ const contactLogic = {
         this.$close.classList.toggle( "active" );
         this.$menu.classList.toggle( "active" );
     },
+};
 
-    init() {
-        this.$link.addEventListener( "click", ( e ) => {
-            e.preventDefault();
-            // this.closeHamburger();
-            burgerLogic.removeActive();
-            burgerLogic.openHams();
-            this.toggleContact();
-            logoIndexComp.open();
-        } );
-
-        this.$close.addEventListener( "click", ( e ) => {
-            e.preventDefault();
-            this.toggleContact();
+/* burgerLogic INIT method */
+burgerLogic.init = () => {
+    this.$burger.addEventListener( "click", ( e ) => {
+        e.preventDefault();
+        this.toggleActive();
+        if ( !this.$hamMenu.classList.contains( "active" ) ) {
+            this.openHams();
             setTimeout( () => {
                 logoIndexComp.close();
             }, 500 );
-        } );
-    },
+        } else {
+            this.closeHams();
+            logoIndexComp.open();
+            // this.closeContact();
+            contactLogic.toggleContact();
+        }
+    } );
+};
+
+/* contactLogic INIT method */
+contactLogic.init = () => {
+    this.$link.addEventListener( "click", ( e ) => {
+        e.preventDefault();
+        // this.closeHamburger();
+        burgerLogic.removeActive();
+        burgerLogic.openHams();
+        this.toggleContact();
+        logoIndexComp.open();
+    } );
+
+    this.$close.addEventListener( "click", ( e ) => {
+        e.preventDefault();
+        this.toggleContact();
+        setTimeout( () => {
+            logoIndexComp.close();
+        }, 500 );
+    } );
 };
 
 /*
