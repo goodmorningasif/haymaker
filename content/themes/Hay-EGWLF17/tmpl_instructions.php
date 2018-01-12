@@ -16,10 +16,11 @@ get_header(); ?>
 		$text = get_sub_field( "text" ); ?>
 		<div class="inst-row <?php echo $image ? "has-img" : "no-img"; ?>">
 			<?php if ( $image ) : ?>
-				<div class="assets"
-					style="background-image: url('<?php echo $image['url']; ?>');
-					max-width: <?php echo $image['width']; ?>px;
-					height: <?php echo $image['height']; ?>px;"></div>
+				<div class="assets">
+					<a href="<?php echo $image['url']; ?>">
+						<img src="<?php echo $image['url']; ?>">
+					</a>
+				</div>
 			<?php endif; ?>
 			<div class="text">
 				<?php echo $text; ?>

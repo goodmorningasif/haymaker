@@ -1,8 +1,44 @@
-/* _instructions.scss */
+/*_instructions.scss */
 
 /* PAGE CONTEXT -> For positioning items */
 /* includes positioning styles like display, padding, margin, height */
 /* INCEPTION RULE: DO NOT nest more than 4  */
+
+div.instructions
+    width: 100%
+    max-width: 850px
+    margin: 150px auto
+    +tiny
+        max-width: 70vw
+        margin: 90px auto
+    
+    div.inst-row
+        +flex
+        padding-top: 20px
+
+        div.text
+            flex: 0 0 100%
+
+        h3,
+        h4
+            margin-bottom: 20px
+
+        h4,
+            margin-top: 40px
+
+        p
+            margin-bottom: 30px
+
+    div.inst-row.has-img
+
+        div.text
+            flex: 0 0 38%
+            padding-top: 40px
+
+        div.assets
+            flex: 0 0 60%
+
+
 
 
 
@@ -10,3 +46,21 @@
 /* OBJECTS -> For styling objects */
 /* Includes cosmetic styles like color, typography, and borders */
 /* INCEPTION RULE: DO NOT nest more than 4 */
+
+div.instructions
+    div.text
+        color: $navy
+        h4, h3
+            @extend %HeadlineSerif
+            text-align: center
+
+        p 
+            @extend %BodyMono
+
+        a,
+        em
+            @extend %LinkGoth
+            color: $gold
+            text-transform: uppercase
+            &:hover
+                color: $navy
