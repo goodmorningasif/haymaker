@@ -10,9 +10,10 @@
  * @subpackage Wordpress
  * @since 1.0
  * @version 1.0
- */
-
-    include(locate_template('components/foot/foot.php')); ?>
+ */ ?>
+	
+	</div>
+    <?php include(locate_template('components/foot/foot.php')); ?>
 
     </div>
   </div>

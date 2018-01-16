@@ -40,3 +40,5 @@
     <div class="container" id="prime">
     
     <?php include(locate_template('components/head/head.php')); ?>
+
+    <div class="ajax" id="load">

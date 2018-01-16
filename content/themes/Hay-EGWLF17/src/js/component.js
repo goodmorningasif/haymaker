@@ -97,10 +97,15 @@ const contactLogic = {
         this.$close.classList.toggle( "active" );
         this.$menu.classList.toggle( "active" );
     },
+    closeContact() {
+        this.$link.classList.remove( "active" );
+        this.$close.classList.remove( "active" );
+        this.$menu.classList.remove( "active" );
+    },
 };
 
 /* burgerLogic INIT method */
-burgerLogic.init = () => {
+burgerLogic.init = function burgerInit() {
     this.$burger.addEventListener( "click", ( e ) => {
         e.preventDefault();
         this.toggleActive();
@@ -112,17 +117,15 @@ burgerLogic.init = () => {
         } else {
             this.closeHams();
             logoIndexComp.open();
-            // this.closeContact();
-            contactLogic.toggleContact();
+            contactLogic.closeContact();
         }
     } );
 };
 
 /* contactLogic INIT method */
-contactLogic.init = () => {
+contactLogic.init = function contactInit() {
     this.$link.addEventListener( "click", ( e ) => {
         e.preventDefault();
-        // this.closeHamburger();
         burgerLogic.removeActive();
         burgerLogic.openHams();
         this.toggleContact();

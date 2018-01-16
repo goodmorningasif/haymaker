@@ -1,0 +1,485 @@
+[
+  {
+    "id": 9,
+    "date": "2017-11-14T20:57:11", 
+    "date_gmt": "2017-11-14T20:57:11",
+    "guid": {
+      "rendered": "http://localhost/haymaker/?page_id=9"
+    },
+    "modified": "2017-12-20T17:26:05",
+    "modified_gmt": "2017-12-20T17:26:05",
+    "slug": "about",
+    "status": "publish",
+    "type": "page",
+    "link": "http://localhost/haymaker/about/",
+    "title": {
+      "rendered": "About"
+    },
+    "content": {
+      "rendered": "",
+      "protected": false
+    },
+    "excerpt": {
+      "rendered": "",
+      "protected": false
+    },
+    "author": 1,
+    "featured_media": 0,
+    "parent": 0,
+    "menu_order": 0,
+    "comment_status": "closed",
+    "ping_status": "closed",
+    "template": "tmpl_main.php",  // <-- find template type
+    "meta": [],
+    "acf": {
+      "head": "",
+      "blocks": [                // <-- rotate thru blocks
+        {
+          "acf_fc_layout": "cynthia",
+          "options": "",
+          "assets": {
+            "image": {
+              "ID": 217,
+              "id": 217,
+              "title": "Haymaker-1202201700281",
+              "filename": "Haymaker-1202201700281.jpg",
+              "url": "http://localhost/haymaker/content/uploads/2017/12/Haymaker-1202201700281.jpg",
+              "alt": "",
+              "author": "1",
+              "description": "",
+              "caption": "",
+              "name": "haymaker-1202201700281",
+              "date": "2017-12-14 19:40:20",
+              "modified": "2017-12-14 19:40:21",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon": "http://localhost/haymaker/wordpress/wp-includes/images/media/default.png",
+              "width": 931,
+              "height": 588,
+              "sizes": {
+                "thumbnail": "http://localhost/haymaker/content/uploads/2017/12/Haymaker-1202201700281-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium": "http://localhost/haymaker/content/uploads/2017/12/Haymaker-1202201700281-300x189.jpg",
+                "medium-width": 300,
+                "medium-height": 189,
+                "medium_large": "http://localhost/haymaker/content/uploads/2017/12/Haymaker-1202201700281-768x485.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 485,
+                "large": "http://localhost/haymaker/content/uploads/2017/12/Haymaker-1202201700281.jpg",
+                "large-width": 931,
+                "large-height": 588
+              }
+            },
+            "icon": false
+          }
+        },
+        {
+          "acf_fc_layout": "danny",
+          "options": "",
+          "text": "<p class=\"text-squeeze\">Make Hay While The Sun Shines! \u0003Centrally located in Uptown Charlotte, \u0003Haymaker Restaurant, from Chef William Dissen, brings locally inspired and seasonal food \u0003to the Queen City.</p>\n",
+          "assets": {
+            "icon": false
+          }
+        },
+        {
+          "acf_fc_layout": "cynthia",
+          "options": "",
+          "assets": {
+            "image": {
+              "ID": 215,
+              "id": 215,
+              "title": "AUTRY_09152017_Haymaker-3217-6.18.38-PM",
+              "filename": "AUTRY_09152017_Haymaker-3217-6.18.38-PM.jpg",
+              "url": "http://localhost/haymaker/content/uploads/2017/12/AUTRY_09152017_Haymaker-3217-6.18.38-PM.jpg",
+              "alt": "",
+              "author": "1",
+              "description": "",
+              "caption": "",
+              "name": "autry_09152017_haymaker-3217-6-18-38-pm",
+              "date": "2017-12-14 19:39:12",
+              "modified": "2017-12-14 19:39:13",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon": "http://localhost/haymaker/wordpress/wp-includes/images/media/default.png",
+              "width": 815,
+              "height": 544,
+              "sizes": {
+                "thumbnail": "http://localhost/haymaker/content/uploads/2017/12/AUTRY_09152017_Haymaker-3217-6.18.38-PM-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium": "http://localhost/haymaker/content/uploads/2017/12/AUTRY_09152017_Haymaker-3217-6.18.38-PM-300x200.jpg",
+                "medium-width": 300,
+                "medium-height": 200,
+                "medium_large": "http://localhost/haymaker/content/uploads/2017/12/AUTRY_09152017_Haymaker-3217-6.18.38-PM-768x513.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 513,
+                "large": "http://localhost/haymaker/content/uploads/2017/12/AUTRY_09152017_Haymaker-3217-6.18.38-PM.jpg",
+                "large-width": 815,
+                "large-height": 544
+              }
+            },
+            "icon": false
+          }
+        },
+        {
+          "acf_fc_layout": "danny",
+          "options": [
+            "Add Icon"
+          ],
+          "text": "<p class=\"text-fm\">Our kitchen is led by Chef William Dissen and \u0003Chef de Cuisine Ashley Quick, a native of Charlotte. Our kitchen reinterprets the bounty of the piedmont area and Appalachia, and explores our foodways, both historic and present across our region.</p>\n",
+          "assets": {
+            "icon": {
+              "ID": 75,
+              "id": 75,
+              "title": "icon_wheat-thessel",
+              "filename": "icon_wheat-thessel.png",
+              "url": "http://localhost/haymaker/content/uploads/2017/11/icon_wheat-thessel.png",
+              "alt": "",
+              "author": "1",
+              "description": "",
+              "caption": "",
+              "name": "icon_wheat-thessel",
+              "date": "2017-11-16 22:09:06",
+              "modified": "2017-12-20 15:57:43",
+              "mime_type": "image/png",
+              "type": "image",
+              "icon": "http://localhost/haymaker/wordpress/wp-includes/images/media/default.png",
+              "width": 135,
+              "height": 194,
+              "sizes": {
+                "thumbnail": "http://localhost/haymaker/content/uploads/2017/11/icon_wheat-thessel-135x150.png",
+                "thumbnail-width": 135,
+                "thumbnail-height": 150,
+                "medium": "http://localhost/haymaker/content/uploads/2017/11/icon_wheat-thessel.png",
+                "medium-width": 135,
+                "medium-height": 194,
+                "medium_large": "http://localhost/haymaker/content/uploads/2017/11/icon_wheat-thessel.png",
+                "medium_large-width": 135,
+                "medium_large-height": 194,
+                "large": "http://localhost/haymaker/content/uploads/2017/11/icon_wheat-thessel.png",
+                "large-width": 135,
+                "large-height": 194
+              }
+            }
+          }
+        },
+        {
+          "acf_fc_layout": "edgar",
+          "text": "<p>We work with a larder of ingredients indigenous to the area, crafting menus that are seasonal, healthy, and locally inspired.</p>\n<p class=\"text-fm\">Located in an urban setting on Romare Bearden Park, our restaurant proudly follows LEED accredited building practices. Our kitchen is fueled by our brick hearth, artisanal products, and daily farm fresh deliveries. Overall, the restaurant is modern, while embracing the handcrafted artisans and furniture builders of North Carolina. Our food and drink offerings follow suit, honoring a heritage and contemporary approach with respect for our hard working farmers and haymakers.</p>\n",
+          "assets": {
+            "image": {
+              "ID": 80,
+              "id": 80,
+              "title": "img_harvesting-cilantro",
+              "filename": "img_harvesting-cilantro.jpg",
+              "url": "http://localhost/haymaker/content/uploads/2017/11/img_harvesting-cilantro.jpg",
+              "alt": "",
+              "author": "1",
+              "description": "",
+              "caption": "",
+              "name": "img_harvesting-cilantro",
+              "date": "2017-11-16 22:34:11",
+              "modified": "2017-11-16 22:34:13",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon": "http://localhost/haymaker/wordpress/wp-includes/images/media/default.png",
+              "width": 350,
+              "height": 525,
+              "sizes": {
+                "thumbnail": "http://localhost/haymaker/content/uploads/2017/11/img_harvesting-cilantro-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium": "http://localhost/haymaker/content/uploads/2017/11/img_harvesting-cilantro-200x300.jpg",
+                "medium-width": 200,
+                "medium-height": 300,
+                "medium_large": "http://localhost/haymaker/content/uploads/2017/11/img_harvesting-cilantro.jpg",
+                "medium_large-width": 350,
+                "medium_large-height": 525,
+                "large": "http://localhost/haymaker/content/uploads/2017/11/img_harvesting-cilantro.jpg",
+                "large-width": 350,
+                "large-height": 525
+              }
+            }
+          }
+        },
+        {
+          "acf_fc_layout": "cynthia",
+          "options": "",
+          "assets": {
+            "image": {
+              "ID": 82,
+              "id": 82,
+              "title": "im_lettuce-zoom",
+              "filename": "im_lettuce-zoom.jpg",
+              "url": "http://localhost/haymaker/content/uploads/2017/11/im_lettuce-zoom.jpg",
+              "alt": "",
+              "author": "1",
+              "description": "",
+              "caption": "",
+              "name": "im_lettuce-zoom",
+              "date": "2017-11-16 22:35:40",
+              "modified": "2017-12-05 19:13:42",
+              "mime_type": "image/jpeg",
+              "type": "image",
+              "icon": "http://localhost/haymaker/wordpress/wp-includes/images/media/default.png",
+              "width": 930,
+              "height": 588,
+              "sizes": {
+                "thumbnail": "http://localhost/haymaker/content/uploads/2017/11/im_lettuce-zoom-150x150.jpg",
+                "thumbnail-width": 150,
+                "thumbnail-height": 150,
+                "medium": "http://localhost/haymaker/content/uploads/2017/11/im_lettuce-zoom-300x190.jpg",
+                "medium-width": 300,
+                "medium-height": 190,
+                "medium_large": "http://localhost/haymaker/content/uploads/2017/11/im_lettuce-zoom-768x486.jpg",
+                "medium_large-width": 768,
+                "medium_large-height": 486,
+                "large": "http://localhost/haymaker/content/uploads/2017/11/im_lettuce-zoom.jpg",
+                "large-width": 930,
+                "large-height": 588
+              }
+            },
+            "icon": {
+              "ID": 83,
+              "id": 83,
+              "title": "icon_fork-knife",
+              "filename": "icon_fork-knife.png",
+              "url": "http://localhost/haymaker/content/uploads/2017/11/icon_fork-knife.png",
+              "alt": "",
+              "author": "1",
+              "description": "",
+              "caption": "",
+              "name": "icon_fork-knife",
+              "date": "2017-11-17 14:09:35",
+              "modified": "2017-12-20 15:58:03",
+              "mime_type": "image/png",
+              "type": "image",
+              "icon": "http://localhost/haymaker/wordpress/wp-includes/images/media/default.png",
+              "width": 74,
+              "height": 288,
+              "sizes": {
+                "thumbnail": "http://localhost/haymaker/content/uploads/2017/11/icon_fork-knife-74x150.png",
+                "thumbnail-width": 74,
+                "thumbnail-height": 150,
+                "medium": "http://localhost/haymaker/content/uploads/2017/11/icon_fork-knife.png",
+                "medium-width": 74,
+                "medium-height": 288,
+                "medium_large": "http://localhost/haymaker/content/uploads/2017/11/icon_fork-knife.png",
+                "medium_large-width": 74,
+                "medium_large-height": 288,
+                "large": "http://localhost/haymaker/content/uploads/2017/11/icon_fork-knife.png",
+                "large-width": 74,
+                "large-height": 288
+              }
+            }
+          }
+        },
+        {
+          "acf_fc_layout": "danny",
+          "options": [
+            "Add Icon"
+          ],
+          "text": "<p class=\"text-fm\">Heirloom ingredients, pickling, preservation, and sustainably sourced seafood and meats lead the way to crafting our menus at Haymaker. Our restaurant is as laid back and casual as it is a place to celebrate, evoking the urban heart of the city while paying respect to our country roots. We&#8217;re a place for each and all: a neighborhood restaurant and bar, a place for friends to gather, and a destination for business folks and travelers to dine.</p>\n<p class=\"text-corner-right\">Make hay while the sun shines and share a meal at our table.</p>\n",
+          "assets": {
+            "icon": {
+              "ID": 83,
+              "id": 83,
+              "title": "icon_fork-knife",
+              "filename": "icon_fork-knife.png",
+              "url": "http://localhost/haymaker/content/uploads/2017/11/icon_fork-knife.png",
+              "alt": "",
+              "author": "1",
+              "description": "",
+              "caption": "",
+              "name": "icon_fork-knife",
+              "date": "2017-11-17 14:09:35",
+              "modified": "2017-12-20 15:58:03",
+              "mime_type": "image/png",
+              "type": "image",
+              "icon": "http://localhost/haymaker/wordpress/wp-includes/images/media/default.png",
+              "width": 74,
+              "height": 288,
+              "sizes": {
+                "thumbnail": "http://localhost/haymaker/content/uploads/2017/11/icon_fork-knife-74x150.png",
+                "thumbnail-width": 74,
+                "thumbnail-height": 150,
+                "medium": "http://localhost/haymaker/content/uploads/2017/11/icon_fork-knife.png",
+                "medium-width": 74,
+                "medium-height": 288,
+                "medium_large": "http://localhost/haymaker/content/uploads/2017/11/icon_fork-knife.png",
+                "medium_large-width": 74,
+                "medium_large-height": 288,
+                "large": "http://localhost/haymaker/content/uploads/2017/11/icon_fork-knife.png",
+                "large-width": 74,
+                "large-height": 288
+              }
+            }
+          }
+        }
+      ],
+      "team_bios": [
+        {
+          "image": {
+            "ID": 220,
+            "id": 220,
+            "title": "Haymaker-1202201700385",
+            "filename": "Haymaker-1202201700385.jpg",
+            "url": "http://localhost/haymaker/content/uploads/2017/12/Haymaker-1202201700385.jpg",
+            "alt": "",
+            "author": "1",
+            "description": "",
+            "caption": "",
+            "name": "haymaker-1202201700385",
+            "date": "2017-12-14 20:01:25",
+            "modified": "2017-12-14 20:01:27",
+            "mime_type": "image/jpeg",
+            "type": "image",
+            "icon": "http://localhost/haymaker/wordpress/wp-includes/images/media/default.png",
+            "width": 274,
+            "height": 403,
+            "sizes": {
+              "thumbnail": "http://localhost/haymaker/content/uploads/2017/12/Haymaker-1202201700385-150x150.jpg",
+              "thumbnail-width": 150,
+              "thumbnail-height": 150,
+              "medium": "http://localhost/haymaker/content/uploads/2017/12/Haymaker-1202201700385-204x300.jpg",
+              "medium-width": 204,
+              "medium-height": 300,
+              "medium_large": "http://localhost/haymaker/content/uploads/2017/12/Haymaker-1202201700385.jpg",
+              "medium_large-width": 274,
+              "medium_large-height": 403,
+              "large": "http://localhost/haymaker/content/uploads/2017/12/Haymaker-1202201700385.jpg",
+              "large-width": 274,
+              "large-height": 403
+            }
+          },
+          "name": "William Dissen",
+          "title": "Executive Chef / Owner",
+          "bio": "From his upbringings in the hills and mountains of Appalachia, multi-award winning chef William Dissen has a focus on fresh, healthy and sustainable food.  At his restaurants across North Carolina - Haymaker, The Market Place, and Billy D's Fried Chicken - he works with a network of local farms, artisan producers, and sustainable fishermen to produce acclaimed food for his guests.  When he's not creating menus in his restaurant kitchens, you can find him enjoying the outdoors with his family or working with his community and with policy makers to help create positive change through good food."
+        },
+        {
+          "image": {
+            "ID": 221,
+            "id": 221,
+            "title": "Haymaker-1202201700378",
+            "filename": "Haymaker-1202201700378.jpg",
+            "url": "http://localhost/haymaker/content/uploads/2017/12/Haymaker-1202201700378.jpg",
+            "alt": "",
+            "author": "1",
+            "description": "",
+            "caption": "",
+            "name": "haymaker-1202201700378",
+            "date": "2017-12-14 20:07:10",
+            "modified": "2017-12-14 20:07:11",
+            "mime_type": "image/jpeg",
+            "type": "image",
+            "icon": "http://localhost/haymaker/wordpress/wp-includes/images/media/default.png",
+            "width": 274,
+            "height": 403,
+            "sizes": {
+              "thumbnail": "http://localhost/haymaker/content/uploads/2017/12/Haymaker-1202201700378-150x150.jpg",
+              "thumbnail-width": 150,
+              "thumbnail-height": 150,
+              "medium": "http://localhost/haymaker/content/uploads/2017/12/Haymaker-1202201700378-204x300.jpg",
+              "medium-width": 204,
+              "medium-height": 300,
+              "medium_large": "http://localhost/haymaker/content/uploads/2017/12/Haymaker-1202201700378.jpg",
+              "medium_large-width": 274,
+              "medium_large-height": 403,
+              "large": "http://localhost/haymaker/content/uploads/2017/12/Haymaker-1202201700378.jpg",
+              "large-width": 274,
+              "large-height": 403
+            }
+          },
+          "name": "Ashley Quick",
+          "title": "Chef de Cuisine",
+          "bio": "Raised in Charlotte, NC - Ashley Quick worked through local restaurants in high school and college.  After culinary school he left for Nashville, TN where he worked at some of the Music City's best restaurants like the Hermitage Hotel, Fltye, Husk, and The Farmhouse.  He also worked alongside Chef Joseph Lenn at JC Holdway in Knoxville, TN helping to bring many accolades to the restaurant.  His career has helped to shape his love of fresh food, and local and seasonal ingredients, as well as building healthy relationships with the community and regional farmers.  When he's not in the kitchen, you can find him with his family, or enjoying the outdoors and his garden."
+        },
+        {
+          "image": {
+            "ID": 224,
+            "id": 224,
+            "title": "Haymaker-1202201700341",
+            "filename": "Haymaker-1202201700341-1.jpg",
+            "url": "http://localhost/haymaker/content/uploads/2017/12/Haymaker-1202201700341-1.jpg",
+            "alt": "",
+            "author": "1",
+            "description": "",
+            "caption": "",
+            "name": "haymaker-1202201700341-2",
+            "date": "2017-12-14 20:13:12",
+            "modified": "2017-12-14 20:13:13",
+            "mime_type": "image/jpeg",
+            "type": "image",
+            "icon": "http://localhost/haymaker/wordpress/wp-includes/images/media/default.png",
+            "width": 274,
+            "height": 403,
+            "sizes": {
+              "thumbnail": "http://localhost/haymaker/content/uploads/2017/12/Haymaker-1202201700341-1-150x150.jpg",
+              "thumbnail-width": 150,
+              "thumbnail-height": 150,
+              "medium": "http://localhost/haymaker/content/uploads/2017/12/Haymaker-1202201700341-1-204x300.jpg",
+              "medium-width": 204,
+              "medium-height": 300,
+              "medium_large": "http://localhost/haymaker/content/uploads/2017/12/Haymaker-1202201700341-1.jpg",
+              "medium_large-width": 274,
+              "medium_large-height": 403,
+              "large": "http://localhost/haymaker/content/uploads/2017/12/Haymaker-1202201700341-1.jpg",
+              "large-width": 274,
+              "large-height": 403
+            }
+          },
+          "name": "Brad Grubb",
+          "title": "General Manager",
+          "bio": "Raised in Lexington, NC, Brad made his way to South Carolina for college to play football for Clemson University.  His work ethic and desire for excellence helped to mold his decision to foray into the food and beverage industry where he spent years managing restaurants in the low country culinary capital of Charleston, SC.  It was here that he found his passion to study wine.  Now as an advanced sommelier, Grubb uses his keen knowledge of food and beverage to create a unique hospitality experience for our guests.  When he's not at Haymaker he enjoys his time with his wife, enjoying the outdoors, and planning his next trip - usually around a great food experience."
+        }
+      ]
+    },
+    "_links": {
+      "self": [
+        {
+          "href": "http://localhost/haymaker/wp-json/wp/v2/pages/9"
+        }
+      ],
+      "collection": [
+        {
+          "href": "http://localhost/haymaker/wp-json/wp/v2/pages"
+        }
+      ],
+      "about": [
+        {
+          "href": "http://localhost/haymaker/wp-json/wp/v2/types/page"
+        }
+      ],
+      "author": [
+        {
+          "embeddable": true,
+          "href": "http://localhost/haymaker/wp-json/wp/v2/users/1"
+        }
+      ],
+      "replies": [
+        {
+          "embeddable": true,
+          "href": "http://localhost/haymaker/wp-json/wp/v2/comments?post=9"
+        }
+      ],
+      "version-history": [
+        {
+          "href": "http://localhost/haymaker/wp-json/wp/v2/pages/9/revisions"
+        }
+      ],
+      "wp:attachment": [
+        {
+          "href": "http://localhost/haymaker/wp-json/wp/v2/media?parent=9"
+        }
+      ],
+      "curies": [
+        {
+          "name": "wp",
+          "href": "https://api.w.org/{rel}",
+          "templated": true
+        }
+      ]
+    }
+  }
+]

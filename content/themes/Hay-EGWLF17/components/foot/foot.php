@@ -10,7 +10,7 @@ $tel = $contact['telephone'];
 $email = $contact['email'];
 $hours = get_field('hours','options'); ?>
 
-<footer class="foot">
+<footer class="foot" id="feet">
 	<div class="first-row">
 		<h3>local &amp; seasonal fare</h3>
 		<h3>7 days a week</h3>

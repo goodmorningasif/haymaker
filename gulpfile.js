@@ -57,12 +57,12 @@ gulp.task('compile', ['lint'], function() {
 	gulp.src(paths.js)
 		.pipe(plumber(plumberErrorHandler))
 		.pipe(babel({
-      presets: ['es2015']
+      		presets: ['es2015']
 		}))
-		.pipe(concat('scripts.js'))
-	  .pipe(uglify())
-    .pipe(gulp.dest(paths.dest))
-	  .pipe(livereload())
+		// .pipe(concat('scripts.js')) <-- concats all files together
+	    .pipe(uglify())
+        .pipe(gulp.dest(paths.dest))
+	    .pipe(livereload())
 });
 
 // Run Moderizr on css & js
