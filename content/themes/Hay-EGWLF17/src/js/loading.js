@@ -9,20 +9,20 @@
 /*
 * loadURL
 */
-const ajaxReq = ( URL, callback ) => {
+const ajaxReq = ( LINK, callback ) => {
     const xmlHTTP = new XMLHttpRequest();
     xmlHTTP.onreadystatechange = () => {
         if ( xmlHTTP.readyState === XMLHttpRequest.DONE ) {
             if ( xmlHTTP.status >= 200 && xmlHTTP.status < 300 ) {
-                callback( xmlHTTP.response );
+                callback( xmlHTTP.response, LINK );
             } else if ( xmlHTTP.status >= 400 && xmlHTTP.status < 500 ) {
-                console.log( "error! request status", xmlHTTP.status, URL );
+                console.warn( "error! request status", xmlHTTP.status, LINK );
             } else {
-                console.log( "something went wrong with your request: ", xmlHTTP.status );
+                console.warn( "something went wrong with your request: ", xmlHTTP.status );
             }
         }
     };
-    xmlHTTP.open( "GET", URL, true );
+    xmlHTTP.open( "GET", LINK, true );
     xmlHTTP.setRequestHeader( "Content-Type", "application/json" );
     xmlHTTP.send();
 };
@@ -30,20 +30,40 @@ const ajaxReq = ( URL, callback ) => {
 /*
 * Load Components
 */
-const mountComponents = ( data ) => {
-    const $burger = document.getElementById( "ham-close" );
-    const $foot = document.getElementById( "feet" );
-    const dataToHTML = document.createElement( "html" );
-    dataToHTML.innerHTML = data;
-    const $newContent = dataToHTML.querySelector( "#load" );
-    const $currContent = document.getElementById( "load" );
-    $currContent.classList.toggle( "ajax" );
-    $currContent.parentNode.insertBefore( $newContent, $foot );
-    setTimeout( () => {
-        $currContent.parentNode.removeChild( $currContent );
-        $burger.click();
-        console.log( "expects to close menu" );
-    }, 500 );
+const mountComponents = ( resp, link ) => {
+    const createEl = ( content ) => {
+        const $el = document.createElement( "html" );
+        $el.innerHTML = content;
+        return $el.querySelector( "#load" );
+    };
+
+    const insertEl = ( $newEl ) => {
+        const $content = document.getElementById( "load" );
+        const $foot = document.getElementById( "feet" );
+        $content.classList.toggle( "ajax" );
+        $content.parentNode.insertBefore( $newEl, $foot );
+        return $content;
+    };
+
+    const removeEl = ( $oldEl ) => {
+        const $burger = document.getElementById( "ham-close" );
+        setTimeout( () => {
+            $oldEl.parentNode.removeChild( $oldEl );
+            $burger.click();
+        }, 500 );
+    };
+
+    const setURL = ( newLink ) => {
+        const state = {
+            title: null,
+            url: window.location.href,
+        };
+        window.history.pushState( state, "", newLink );
+    };
+    const $newContent = createEl( resp );
+    const $oldContent = insertEl( $newContent );
+    removeEl( $oldContent );
+    setURL( link );
 };
 
 /*
