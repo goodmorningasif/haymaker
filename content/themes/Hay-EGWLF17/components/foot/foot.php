@@ -8,7 +8,37 @@ $contact = get_field('contact','options');
 $address = $contact['address'];
 $tel = $contact['telephone'];
 $email = $contact['email'];
-$hours = get_field('hours','options'); ?>
+$hours = get_field('hours','options'); 
+$close_icon = file_get_contents($GLOBALS['url']."/assets/svg/svg_close.svg");?>
+
+<div class="popup-container">
+
+  <div class="giftcard popup">
+    <h3 class="close-height toggle">
+        <?php echo $close_icon; ?>
+    </h3>
+    <h2>Purchase a Gift Card</h2>
+    <h3>Select amount below</h3>
+    <div class="giftcard-link wrapper">
+      <div id="twentyfive" class="button">$25.00</div>
+      <div id="sixty" class="button">$60.00</div>
+      <div id="hundred" class="button">$100.00</div>
+    </div>
+  </div>
+
+  <div class="newsletter popup">
+    <h3 class="close-height toggle">
+        <?php echo $close_icon; ?>
+    </h3>
+    <h2>Sign Up for our Newsletter</h2>
+    <h3>Stay in the know</h3>
+    <div class="newsletter-content forms">
+      <?php echo do_shortcode('[contact-form-7 id="381" title="Newsletter Signup"]'); ?>
+    </div>
+  </div>
+
+  <div class="overlay" id="pop"></div>
+</div>
 
 <footer class="foot" id="feet">
 	<div class="first-row">
@@ -44,22 +74,18 @@ $hours = get_field('hours','options'); ?>
   	<div class="right-wrapper">
       <div class="half">
     		<h2>Contact</h2>
-    		<p class="title">Email us</p>
     		<p>
     			<span class="link">
       			<a href="mailto:<?php echo $email; ?>">
         			<?php echo $email; ?>
       		  </a>
-      	  </span>
+          </span>
+          <span class="link">
+            <a href="tel:<?php echo $tel; ?>">
+              <?php echo print_tel($tel); ?>
+            </a>
+          </span>
       	</p>
-    		<p class="title">Give us a call</p>
-    		<p>
-    			<span class="link">
-    				<a href="tel:<?php echo $tel; ?>">
-        			<?php echo print_tel($tel); ?>
-      	   	</a>
-    	   </span>
-    	  </p>
       </div>
       <div class="half">
     		<div class="social-row">
@@ -75,6 +101,9 @@ $hours = get_field('hours','options'); ?>
     			    </div>
           <?php endwhile; endif; ?>
     		</div>
+        <div class="newsletter button">
+          <a href="">Newsletter Sign Up</a>
+        </div>
     		<div class="gift button">
     			<a href="">Gift Cards</a>
     		</div>

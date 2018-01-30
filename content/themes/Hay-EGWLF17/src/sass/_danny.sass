@@ -138,7 +138,8 @@ div.forms
             padding-left: 10px
             padding-top: 6px
 
-    input[type="submit"]#form-submit
+    input[type="submit"]#form-submit,
+    input[type="submit"]#form-submit-footer
         padding: 6px 18px
         -webkit-appearance: none
         border-radius: 0
@@ -172,45 +173,46 @@ div.block.danny
     h3.form-head
         @extend %HeadlineSerif
 
-    div.forms
-        border-top: 2px solid $navy
+div.forms
+    border-top: 2px solid $navy
 
-    div.label
-        @extend %LinkGoth
-        text-transform: uppercase
+div.label
+    @extend %LinkGoth
+    text-transform: uppercase
 
-    div.form 
-        input,
-        textarea,
-        select
-            @extend %BodyMono
-            color: $navy
-            border: 2px solid $navy
-            background: transparent
+div.form 
+    input,
+    textarea,
+    select
+        @extend %BodyMono
+        color: $navy
+        border: 2px solid $navy
+        background: transparent
 
-    div.form.box
-        span.wpcf7-list-item-label
-            @extend %HeadlineSerif
-            font-size: 1.4rem
-  
-    input[type="submit"]#form-submit
-        @extend %LinkGoth
-        background-color: $navy
-        color: $cream
-        text-transform: uppercase
-        border: none
-        &:hover
-            background-color: $gold
-
-    span[role="alert"]
-        @extend %LinkGoth
-        text-transform: uppercase
-        color: $gold
-
-    div.wpcf7-response-output
+div.form.box
+    span.wpcf7-list-item-label
         @extend %HeadlineSerif
-        color: $gold
-        border: none
-        text-align: center
+        font-size: 1.4rem
+
+input[type="submit"]#form-submit,
+input[type="submit"]#form-submit-footer
+    @extend %LinkGoth
+    background-color: $navy
+    color: $cream
+    text-transform: uppercase
+    border: none
+    &:hover
+        background-color: $gold
+
+span[role="alert"]
+    @extend %LinkGoth
+    text-transform: uppercase
+    color: $gold
+
+div.wpcf7-response-output
+    @extend %HeadlineSerif
+    color: $gold
+    border: none
+    text-align: center
 
 

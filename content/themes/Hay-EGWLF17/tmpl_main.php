@@ -7,7 +7,7 @@
 
 get_header(); ?>
 
-<div class="blocks ">
+<div class="blocks">
 
 <?php if(have_rows('blocks')):
 	while(have_rows('blocks')) :
