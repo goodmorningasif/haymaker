@@ -27,7 +27,8 @@ get_header(); ?>
 			</div>
 		</div>
 
-<?php endwhile; endif; ?>
+<?php endwhile; 
+endif; ?>
 
 </div>
 

@@ -124,14 +124,11 @@ div.teams
 
 div.teams
     div.team-member
-        color: $navy
-
         &:hover
-            color: $gold
-
             .profile
                 -webkit-filter: none
                 filter: none
+
 
         h2
             @extend %HeadlineSerif
@@ -167,7 +164,6 @@ div.teams
 
 
     div.team-member.active
-        color: $gold
 
         .profile
             -webkit-filter: none
@@ -199,6 +195,12 @@ div.teams
             color: $navy
             background-color: transparent
             border: none
+
+
+    div.team-member a
+        color: $navy
+        &:hover
+            color: $gold
 
 
 

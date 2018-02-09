@@ -13,7 +13,10 @@
  */ ?>
 	
 	</div>
-    <?php include(locate_template('components/foot/foot.php')); ?>
+	
+    <?php 
+    	include(locate_template('components/foot/popup.php')); 
+    	include(locate_template('components/foot/foot.php')); ?>
 
     </div>
   </div>

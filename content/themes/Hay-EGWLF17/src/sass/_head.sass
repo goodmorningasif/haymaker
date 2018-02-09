@@ -138,7 +138,7 @@ div.nav.bottom-right
   
 
 /* JS TOGGLE STYLES */
-div.container div.pinned
+body.home div.container div.pinned
   transform: translate(0, 350px)
   +tablet
     transform: translate(0, 165px)
@@ -167,6 +167,12 @@ div.container div.nav.bottom-left.active
 
 /* PRE HEADER COMPONENT */  
 div.pre-comp
+  transform: translate(0,-400px)
+  max-height: 0
+
+body.home div.pre-comp
+  transform: translate(0,0)
+  max-height: initial
   +flex
   width: 100%
   max-width: 812px
@@ -205,8 +211,6 @@ div.pre-comp
       flex: 0 0 50%
       margin-top: 0
       transform: translate(40px,200px)
-      // 
-
 
 
 div.nav.hamburger-menu,

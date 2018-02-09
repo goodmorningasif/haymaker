@@ -1,6 +1,6 @@
 <?php 
   /*
-  * Section =>  Head
+  * Section =>  Foot
   */
 
 $tagline = get_field('tagline','options');
@@ -9,36 +9,7 @@ $address = $contact['address'];
 $tel = $contact['telephone'];
 $email = $contact['email'];
 $hours = get_field('hours','options'); 
-$close_icon = file_get_contents($GLOBALS['url']."/assets/svg/svg_close.svg");?>
-
-<div class="popup-container">
-
-  <div class="giftcard popup">
-    <h3 class="close-height toggle">
-        <?php echo $close_icon; ?>
-    </h3>
-    <h2>Purchase a Gift Card</h2>
-    <h3>Select amount below</h3>
-    <div class="giftcard-link wrapper">
-      <div id="twentyfive" class="button">$25.00</div>
-      <div id="sixty" class="button">$60.00</div>
-      <div id="hundred" class="button">$100.00</div>
-    </div>
-  </div>
-
-  <div class="newsletter popup">
-    <h3 class="close-height toggle">
-        <?php echo $close_icon; ?>
-    </h3>
-    <h2>Sign Up for our Newsletter</h2>
-    <h3>Stay in the know</h3>
-    <div class="newsletter-content forms">
-      <?php echo do_shortcode('[contact-form-7 id="381" title="Newsletter Signup"]'); ?>
-    </div>
-  </div>
-
-  <div class="overlay" id="pop"></div>
-</div>
+?>
 
 <footer class="foot" id="feet">
 	<div class="first-row">
@@ -49,7 +20,7 @@ $close_icon = file_get_contents($GLOBALS['url']."/assets/svg/svg_close.svg");?>
 		<div class="left-wrapper">
   		<div class="booking-comp">
   			<div class="booking button">
-  				<a href="https://www.opentable.com/restaurant/profile/988627/reserve?restref=988627&lang=en-US" target="_blank">book a table</a>
+  				<a href="http://www.opentable.com/single.aspx?rid=988627&restref=988627" target="_blank">book a table</a>
   			</div>
   			<h2><?php echo $tagline; ?></h2>
 		  </div>
@@ -102,10 +73,10 @@ $close_icon = file_get_contents($GLOBALS['url']."/assets/svg/svg_close.svg");?>
           <?php endwhile; endif; ?>
     		</div>
         <div class="newsletter button">
-          <a href="">Newsletter Sign Up</a>
+          <a href="" id="popup-newsletter-bttn">Newsletter Sign Up</a>
         </div>
     		<div class="gift button">
-    			<a href="">Gift Cards</a>
+    			<a href="" id="popup-giftcard-bttn">Gift Cards</a>
     		</div>
       </div>
   	</div> 		

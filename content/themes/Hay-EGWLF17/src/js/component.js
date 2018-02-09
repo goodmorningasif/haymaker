@@ -142,21 +142,6 @@ contactLogic.init = function contactInit() {
 };
 
 /*
-* Team Bios Logic
-*/
-const teamBiosLogic = () => {
-    const $toggleEl = document.getElementsByClassName( "toggle" );
-
-    Array.prototype.forEach.call( $toggleEl, ( $button ) => {
-        $button.addEventListener( "click", ( e ) => {
-            e.preventDefault();
-            const $parentEl = $button.closest( ".team-member" );
-            $parentEl.classList.toggle( "active" );
-        } );
-    } );
-};
-
-/*
 * Toggle Root
 */
 const toggleRootLoad = () => {
@@ -239,11 +224,51 @@ const activeMenu = () => {
 };
 
 /*
+* Toggle Popup Logic
+*/
+const togglePopup = {
+    closePopup() {
+        const $closeBttns = document.getElementsByClassName( "close-popup" );
+        Array.prototype.forEach.call( $closeBttns, ( $close ) => {
+            $close.addEventListener( "click", ( e ) => {
+                e.preventDefault();
+                const $popup = $close.closest( ".popup" );
+                const $overlay = document.getElementById( "pop" );
+                $popup.classList.remove( "toggle" );
+                $overlay.classList.remove( "toggle" );
+            } );
+        } );
+    },
+    openPopup() {
+        const $overlay = document.getElementById( "pop" );
+        const $giftcardBttn = document.getElementById( "popup-giftcard-bttn" );
+        const $giftcardContainer = document.getElementById( "popup-giftcard-container" );
+        $giftcardBttn.addEventListener( "click", ( e ) => {
+            e.preventDefault();
+            $giftcardContainer.classList.add( "toggle" );
+            $overlay.classList.add( "toggle" );
+        } );
+        const $newsletterBttn = document.getElementById( "popup-newsletter-bttn" );
+        const $newsletterContainer = document.getElementById( "popup-newsletter-container" );
+        $newsletterBttn.addEventListener( "click", ( e ) => {
+            e.preventDefault();
+            $newsletterContainer.classList.add( "toggle" );
+            $overlay.classList.add( "toggle" );
+        } );
+    },
+    init() {
+        this.openPopup();
+        this.closePopup();
+    },
+};
+
+/*
 * Document.Ready
 */
 
 document.onreadystatechange = () => {
     if ( document.readyState === "complete" ) {
+        console.log( "reload" );
         // Remove Root Load
         toggleRootLoad();
 
@@ -256,10 +281,12 @@ document.onreadystatechange = () => {
         contactLogic.init();
 
         // Set Compomet Logic
-        teamBiosLogic();
         toggleExpandables();
         setElRotate( "left-logo" );
         injectCompURL();
         copyToClipboard();
+
+        // Set Popup Logic
+        togglePopup.init();
     }
 };

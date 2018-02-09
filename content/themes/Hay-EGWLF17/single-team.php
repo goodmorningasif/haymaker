@@ -1,7 +1,7 @@
 <?php
 /**
  *
- * Template Name: Main
+ * Template Name: Single Team
  *
  */
 
@@ -44,31 +44,7 @@ get_header(); ?>
 
 	endwhile;
 endif; ?>
+
 </div>
-
-<?php
-if( get_the_title() === "About" ) :
-    $team_args = array(
-        "post_type" => "team",
-        "posts_per_page" => "-1"
-    );
-    $teams = new WP_Query( $team_args );
-
-    if( $teams->have_posts() ): ?>
-    <div class="teams">
-        <?php  while( $teams->have_posts() ):
-            $teams->the_post();
-            if( have_rows('blocks') ):
-                while( have_rows('blocks') ):
-                    the_row();
-
-                    include(locate_template('components/teams/teams.php')); 
-
-                endwhile;
-            endif;
-        endwhile; ?>
-    </div>
-    <?php endif;
-endif; ?>
 
 <?php get_footer();

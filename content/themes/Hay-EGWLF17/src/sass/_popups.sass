@@ -1,0 +1,139 @@
+/*  _popups.sass */
+
+/* PAGE CONTEXT -> For positioning items */
+/* includes positioning styles like display, padding, margin, height */
+/* INCEPTION RULE: DO NOT nest more than 4  */
+
+div.popup-container
+    position: relative
+    z-index: 150
+
+    h3.close-popup
+        position: absolute
+        top: 25px
+        right: 25px
+        width: 20px
+        height: 20px
+        margin-left: 0
+
+    div.popup
+        position: fixed
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        padding-top: 50px
+        z-index: 50
+
+    div.giftcard,
+    div.newsletter,
+    div.overlay#pop,
+        visibility: hidden
+
+    div.newsletter.toggle
+        visibility: visible
+        max-width: 570px
+        width: 100%
+        // height: 100%
+        // max-height: 650px
+
+        div.newsletter-content
+            max-width: 450px
+            width: 100%
+            margin: 0 auto 30px
+            padding: 40px 0 0
+
+        input[type="submit"]#form-submit-footer
+            display: block
+            max-width: 130px
+            width: 100%
+            max-height: 35px
+            height: 100%
+            margin: 0 auto
+
+        div.label
+            margin-top: 10px
+            margin-bottom: 20px
+
+        div.wpcf7-response-output
+            margin-top: 0
+
+    form.wpcf7-form.sent
+        div.form.full,
+        div.form.submit
+            display: none
+
+    div.giftcard.toggle
+        visibility: visible
+        max-width: 566px
+        width: 100%
+        height: 241px
+
+        div.giftcard-link.wrapper
+            +flex
+            max-width: 420px
+            width: 100%
+            margin: 0 auto
+            padding-top: 35px
+
+        div.button
+            width: 127px
+            height: 30px
+            padding-top: 1px
+
+
+    div.overlay#pop.toggle
+        visibility: visible
+        position: fixed
+        top: 0
+        left: 0
+        width: 100vw
+        height: 100vh
+        z-index: 20
+
+/* OBJECTS -> For styling objects */
+/* Includes cosmetic styles like color, typography, and borders */
+/* INCEPTION RULE: DO NOT nest more than 4  */
+
+div.popup-container 
+    div.popup
+        background-color: $cream
+
+    div.overlay#pop
+        background-color: rgba(137,136,133,0.55)
+
+    h2,
+    h3
+        text-align: center
+
+    h2
+        @extend %HeadlineSerif
+
+    h3 
+        @extend %LinkGoth
+        text-transform: uppercase
+
+    h3.close-popup
+        cursor: pointer
+
+    div.newsletter-content
+        border-top: 0
+
+    div.giftcard.popup div.button, 
+        @extend %LinkGoth
+        background-color: $navy
+        color: $cream
+        text-align: center
+        cursor: pointer
+        &:hover
+            background-color: $gold
+
+    div.giftcard.popup div.button a
+        color: $cream
+
+    div.wpcf7-response-output
+        @extend %LinkGoth
+        text-transform: uppercase
+        color: $navy
+            
+
+

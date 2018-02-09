@@ -41,4 +41,6 @@
     
     <?php include(locate_template('components/head/head.php')); ?>
 
-    <div class="ajax" id="load">
+    <div class="ajax mount" id="load">
+      
+      <div <?php body_class(); ?> id="body_classes"></div>
