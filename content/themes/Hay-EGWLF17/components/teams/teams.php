@@ -11,11 +11,11 @@ $title = ( $options ) ? get_sub_field('title') : false;
 $link = get_permalink( $id ); ?>
   
 <div class="team-member" id="<?php echo str_replace(" ", "", $name); ?>">
-    <a href="<?php echo $link; ?>">
+    <a class="ajax-load" href="<?php echo $link; ?>">
         <div class="profile toggle"
             style="background-image: url('<?php echo $image['url']; ?>'); 
-            max-width: <?php echo $image['width']; ?>px;
-            height: <?php echo $image['height'] ?>px;">
+            max-width: 270px;
+            height: 403px;">
         </div>
         <?php if ( $options ): ?>
             <h2 class="toggle"><?php echo $name; ?></h2>

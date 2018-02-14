@@ -10,3 +10,5 @@
   include(locate_template('components/head/hamburger-menu.php'));
 
   include(locate_template('components/head/contact-menu.php'));
+
+  include(locate_template('components/menu/nav.php'));

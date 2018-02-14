@@ -30,7 +30,7 @@ get_header(); ?>
 <?php endwhile; 
 endif; ?>
 
-</div>
+</div><!-- end instructions -->
 
 
 <?php get_footer();

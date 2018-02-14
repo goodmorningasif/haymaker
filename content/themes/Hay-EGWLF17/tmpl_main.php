@@ -44,13 +44,15 @@ get_header(); ?>
 
 	endwhile;
 endif; ?>
-</div>
+</div> <!-- end blocks -->
 
 <?php
 if( get_the_title() === "About" ) :
     $team_args = array(
         "post_type" => "team",
-        "posts_per_page" => "-1"
+        "posts_per_page" => "-1",
+        "order" => "ASC",
+        "orderby" => "ID"
     );
     $teams = new WP_Query( $team_args );
 

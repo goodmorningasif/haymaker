@@ -12,13 +12,12 @@
  * @version 1.0
  */ ?>
 	
-	</div>
+    </div> <!-- ajax container -->
 	
     <?php 
     	include(locate_template('components/foot/popup.php')); 
     	include(locate_template('components/foot/foot.php')); ?>
 
-    </div>
   </div>
 	<?php wp_footer(); ?>
 </body><!-- end -->

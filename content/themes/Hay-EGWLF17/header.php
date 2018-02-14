@@ -16,31 +16,31 @@
 <html <?php language_attributes(); ?> class="no-js no-svg">
 <head>
   <script type="text/javascript">
-	document.documentElement.setAttribute("data-browser", navigator.userAgent);
-  </script>
+   document.documentElement.setAttribute("data-browser", navigator.userAgent);
+</script>
 
-  <script src="//localhost:35729/livereload.js"></script>
+<script src="//localhost:35729/livereload.js"></script>
 
 
-  <meta charset="<?php bloginfo( 'charset' ); ?>">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="profile" href="http://gmpg.org/xfn/11">
-	
-  <title>
+<meta charset="<?php bloginfo( 'charset' ); ?>">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="profile" href="http://gmpg.org/xfn/11">
+
+<title>
     <?php wp_title( '-', true, 'right' ); 
-      echo bloginfo(); ?>
-  </title>
-	
-  <?php wp_head(); ?>
+    echo bloginfo(); ?>
+</title>
+
+<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
 
   <div class="root load" id="root">
     <div class="container" id="prime">
-    
-    <?php include(locate_template('components/head/head.php')); ?>
+        
+        <?php include(locate_template('components/head/head.php')); ?>
 
-    <div class="ajax mount" id="load">
-      
-      <div <?php body_class(); ?> id="body_classes"></div>
+        <div class="ajax mount" id="load">
+          
+          <div <?php body_class(); ?> id="body_classes"></div>

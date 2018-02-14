@@ -4,8 +4,10 @@
 /* includes positioning styles like display, padding, margin, height */
 /* INCEPTION RULE: DO NOT nest more than 4  */
 
-
 div.menu-nav
+    display: none
+
+body.single-menu.menu-template-default div.menu-nav
     +flex // ($b: space-around, $c: center)
     width: 100%
     max-width: 620px
@@ -107,6 +109,9 @@ div.menu
 
     div.note
         margin-top: 40px
+
+    p.subject-to-change
+        margin-top: 25px
 
 
 

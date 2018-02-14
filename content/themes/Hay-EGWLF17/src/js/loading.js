@@ -16,32 +16,75 @@
 const ajaxHistory = {
     memory: {},
     length: 0,
-    add( data, url ) {
-        this.memory[ url ] = { page_data: data };
+    add( {
+        data,
+        url,
+        title,
+    } ) {
+        this.memory[ title ] = {
+            page_data: data,
+            url,
+        };
         this.length += 1;
         return this.length;
     },
-    init() {
+    urlParser() {
         const thisPageURL = window.location.href;
-        if ( !this.memory[ thisPageURL ] ) {
-            const content = document.getElementById( "load" );
-            this.add( content.outerHTML, thisPageURL );
+        const urlArr = thisPageURL.split( "/" );
+        const subPage = urlArr.reduce( ( accu, curr ) =>
+            ( ( curr === "team" || curr === "menu" ) ?
+                accu + curr :
+                accu
+            ), "" );
+
+        return {
+            title: urlArr[ urlArr.length - 2 ],
+            subPage,
+            url: thisPageURL,
+        };
+    },
+    assemble( {
+        urlObj,
+        content,
+    } ) {
+        return this.add( {
+            data: content,
+            url: urlObj.url,
+            title: urlObj.title,
+        } );
+    },
+    init() {
+        const urlObj = this.urlParser();
+        if ( !this.memory[ urlObj ] ) {
+            const content = document.getElementById( "load" ).outerHTML;
+            this.assemble( {
+                urlObj,
+                content,
+            } );
         }
-        return thisPageURL;
+        return urlObj;
     },
 };
 
 /*
 * AJAX Function
 *
-* Pure JavaScript AJAX method, no JQuery
+* Pure JavaScript AJAX method
 */
-const ajaxReq = ( options ) => {
+const ajaxReq = ( {
+    LINK,
+    callback,
+    resetEvents = false,
+} = {} ) => {
     const xmlHTTP = new XMLHttpRequest();
     xmlHTTP.onreadystatechange = () => {
         if ( xmlHTTP.readyState === XMLHttpRequest.DONE ) {
             if ( xmlHTTP.status >= 200 && xmlHTTP.status < 300 ) {
-                options.callback( xmlHTTP.response, options.LINK );
+                callback( {
+                    resp: xmlHTTP.response,
+                    link: LINK,
+                    events: resetEvents,
+                } );
             } else if ( xmlHTTP.status >= 400 && xmlHTTP.status < 500 ) {
                 // console.warn( "error! request status", xmlHTTP.status, LINK );
             } else {
@@ -49,7 +92,7 @@ const ajaxReq = ( options ) => {
             }
         }
     };
-    xmlHTTP.open( "GET", options.LINK, true );
+    xmlHTTP.open( "GET", LINK, true );
     xmlHTTP.setRequestHeader( "Content-Type", "application/json" );
     xmlHTTP.send();
     return true;
@@ -67,7 +110,7 @@ const setNavClasses = ( link ) => {
         $link.classList.remove( "active" );
     } );
 
-    const $menuLink = document.getElementsByClassName( "meny-link" );
+    const $menuLink = document.getElementsByClassName( "menu-link" );
     Array.prototype.forEach.call( $menuLink, ( $link ) => {
         const $children = $link.children;
         $children[ 0 ].classList.remove( "active" );
@@ -77,7 +120,7 @@ const setNavClasses = ( link ) => {
     Array.prototype.forEach.call( $getAjaxLinks, ( $link ) => {
         const linkURL = $link.getAttribute( "href" );
         const isMenuPage = linkURL.indexOf( "/menu/" );
-        if ( isMenuPage < 0 && linkURL === link ) {
+        if ( isMenuPage < 0 && linkURL === link && $link.closest( ".list-link" ) ) {
             $link.closest( ".list-link" ).classList.add( "active" );
         } else if ( isMenuPage > 0 && linkURL === link ) {
             const $foodLink = document.getElementById( "pg-food" );
@@ -92,13 +135,18 @@ const setNavClasses = ( link ) => {
 *
 * Primary AJAX data processing and insertin pipeline
 */
-const mountComponents = ( options ) => {
-    // resp, link, popState = false, callback
-    options.popState = options.popState || false; 
-    console.log( "mounting Components" );
+const mountComponents = ( {
+    resp,
+    link,
+    popState = false,
+    events = false,
+} = {} ) => {
     // saves input to memory object and returns original object
     const saveToMemory = ( $el ) => {
-        ajaxHistory.add( $el.outerHTML, link );
+        ajaxHistory.add( {
+            data: $el.outerHTML,
+            url: link,
+        } );
         return $el;
     };
 
@@ -116,6 +164,7 @@ const mountComponents = ( options ) => {
     const createEl = ( content ) => {
         const $el = document.createElement( "html" );
         $el.innerHTML = content;
+        if ( events ) events( $el );
         return saveToMemory( $el.querySelector( "#load" ) );
     };
 
@@ -137,7 +186,8 @@ const mountComponents = ( options ) => {
     // nav menu is open, simulates a click event
     const removeEl = ( $oldEl ) => {
         const $burgerBttn = document.getElementById( "ham-close" );
-        const menuIsActive = document.getElementById( "ham-menu" ).classList.contains( "active" );
+        const $hamMenu = document.getElementById( "ham-menu" );
+        const menuIsActive = $hamMenu.classList.contains( "active" );
         setTimeout( () => {
             $oldEl.parentNode.removeChild( $oldEl );
             if ( menuIsActive ) $burgerBttn.click();
@@ -156,13 +206,9 @@ const mountComponents = ( options ) => {
     };
 
     // executes the pipeline
-    const $newContent = createEl( resp );
-    const $oldContent = insertEl( $newContent );
-    removeEl( $oldContent );
+    removeEl( insertEl( createEl( resp ) ) );
     setNavClasses( link );
     if ( !popState ) setURL( link );
-    console.log( "pre-check for callback", callback );
-    if ( callback ) console.log( "this is the callback", callback );
 };
 
 /*
@@ -171,26 +217,40 @@ const mountComponents = ( options ) => {
 * Sets the onClick events for all anchors with
 * the class name ajax-load
 */
-const setAjaxEvents = () => {
-    console.log( "Ajax Events Set !" );
-    const $ajaxLoad = document.getElementsByClassName( "ajax-load" );
+const setAjaxEvents = ( $newContent = false ) => {
+    const $ajaxLoad = ( $newContent ) ?
+        $newContent.getElementsByClassName( "ajax-load" ) :
+        document.getElementsByClassName( "ajax-load" );
+
+    const ajaxTriggerAction = ( e, $link ) => {
+        e.preventDefault();
+        const URL = $link.getAttribute( "href" );
+        const currentPage = window.location.href;
+        // const hasURL = Object.prototype.hasOwnProperty.call( ajaxHistory.memory, URL );
+        const hasURL = ( ajaxHistory.memory[ URL ] );
+        if ( URL !== currentPage ) {
+            if ( !hasURL ) {
+                console.log( "triggered by AJAXREQ in trigger", hasURL, URL );
+                ajaxReq( {
+                    LINK: URL,
+                    callback: mountComponents,
+                    resetEvents: setAjaxEvents,
+                } );
+            } else {
+                console.log( "triggered by MOUNT in trigger", hasURL );
+                mountComponents( {
+                    resp: ajaxHistory.memory[ URL ].page_data,
+                    link: URL,
+                    events: setAjaxEvents,
+                } );
+            }
+        }
+    };
+
     Array.prototype.forEach.call( $ajaxLoad, ( $link ) => {
         $link.addEventListener( "click", ( e ) => {
-            e.preventDefault();
-            const URL = $link.getAttribute( "href" );
-            const currentPage = window.location.href;
-            const hasURL = Object.prototype.hasOwnProperty.call( ajaxHistory.memory, URL );
-            // const isMenuPage = URL.indexOf( "/menu/" );
-            if ( URL !== currentPage ) {
-                if ( !hasURL ) ajaxReq( URL, mountComponents );
-                else {
-                    mountComponents(
-                        ajaxHistory.memory[ URL ].page_data,
-                        URL,
-                    );
-                }
-            }
-        } );
+            ajaxTriggerAction( e, $link );
+        }, { capture: true } );
     } );
 };
 
@@ -199,15 +259,21 @@ const setAjaxEvents = () => {
 */
 const popStateMethods = () => {
     const changeState = ( state ) => {
-        const hasURL = Object.prototype.hasOwnProperty.call( ajaxHistory.memory, state.url );
+        const hasURL = Object.prototype.hasOwnProperty.call( ajaxHistory.memory, `${ state.url }` );
+        console.log( "hasURL in popstate", hasURL );
         const thisURLObj = ajaxHistory.memory[ state.url ];
         if ( hasURL ) {
-            mountComponents( thisURLObj.page_data, state.url, true );
-        }
-        else  {
-            ajaxReq( { 
-                LINK: state.url, 
-                callback: mountComponents 
+            console.log( "triggered by MOUNT in popstate", hasURL );
+            mountComponents( {
+                resp: thisURLObj.page_data,
+                link: state.url,
+                popState: true,
+            } );
+        } else {
+            console.log( "triggered by AJAXREQ in popstate", hasURL );
+            ajaxReq( {
+                LINK: state.url,
+                callback: mountComponents,
             } );
         }
     };
@@ -220,6 +286,12 @@ const popStateMethods = () => {
 /*
 * Initiate Functions
 */
+
 setAjaxEvents();
+// --> Sets events to handle loading pages
+
 popStateMethods();
+// --> Sets handler for Back and Forward browser buttons
+
 ajaxHistory.init();
+// --> Starts up memory

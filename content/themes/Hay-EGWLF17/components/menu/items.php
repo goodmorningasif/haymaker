@@ -63,8 +63,9 @@ if ( have_rows( "menu_repeater" ) ) :
 	<?php $count++;endwhile; 
 endif; ?>
 
-<?php if ( $note ) : ?>
 	<div class="note">
+	<?php if ( $note ) : ?>
 		<span class="asterix">*</span><?php echo $note; ?>
+	<?php endif; ?>
+		<p class="subject-to-change">Menu subject to change based on availability.</p>
 	</div>
-<?php endif; ?>

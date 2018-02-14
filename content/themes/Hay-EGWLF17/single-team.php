@@ -45,6 +45,6 @@ get_header(); ?>
 	endwhile;
 endif; ?>
 
-</div>
+</div><!-- end blocks -->
 
 <?php get_footer();
