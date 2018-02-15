@@ -23,12 +23,11 @@ const ajaxHistory = {
             url,
         };
         this.length += 1;
-        console.log( "just added to memory", title );
         return this.length;
     },
 
-    urlParser() {
-        const thisPageURL = window.location.href;
+    urlParser( link ) {
+        const thisPageURL = link || window.location.href;
         const urlArr = thisPageURL.split( "/" );
         const subPage = urlArr.reduce( ( accu, curr ) =>
             ( ( curr === "team" || curr === "menu" ) ?
@@ -191,11 +190,13 @@ const mountComponents = ( {
 
     // Sets the history for the browser
     const setURL = ( newLink ) => {
+        const thisUrlObj = ajaxHistory.urlParser();
         const state = {
-            title: null,
-            url: window.location.href,
+            title: thisUrlObj.title,
+            url: thisUrlObj.url,
         };
         window.history.pushState( state, "", newLink );
+        saveToMemory();
         return state;
     };
 
@@ -203,7 +204,6 @@ const mountComponents = ( {
     removeEl( insertEl( createEl( resp ) ) );
     setNavClasses( link );
     if ( !popState ) setURL( link );
-    saveToMemory();
 };
 
 /*
@@ -219,23 +219,22 @@ const setAjaxEvents = ( $newContent = false ) => {
 
     const ajaxTriggerAction = ( e, $link ) => {
         e.preventDefault();
-        const URL = $link.getAttribute( "href" );
+        const urlObj = ajaxHistory.urlParser( $link.getAttribute( "href" ) );
         const currentPage = window.location.href;
-        // const hasURL = Object.prototype.hasOwnProperty.call( ajaxHistory.memory, URL );
-        const hasURL = ( ajaxHistory.memory[ URL ] );
-        if ( URL !== currentPage ) {
+        const hasURL = ( ajaxHistory.memory[ urlObj.title ] );
+        if ( urlObj.url !== currentPage ) {
             if ( !hasURL ) {
-                console.log( "triggered by AJAXREQ in trigger", hasURL, URL );
+                // console.log( "triggered by AJAXREQ in trigger", hasURL );
                 ajaxReq( {
-                    LINK: URL,
+                    LINK: urlObj.url,
                     callback: mountComponents,
                     resetEvents: setAjaxEvents,
                 } );
             } else {
-                console.log( "triggered by MOUNT in trigger", hasURL );
+                // console.log( "triggered by MOUNT in trigger", hasURL );
                 mountComponents( {
-                    resp: ajaxHistory.memory[ URL ].data,
-                    link: URL,
+                    resp: ajaxHistory.memory[ urlObj.title ].data,
+                    link: ajaxHistory.memory[ urlObj.title ].url,
                     events: setAjaxEvents,
                 } );
             }
@@ -256,14 +255,14 @@ const setAjaxEvents = ( $newContent = false ) => {
 */
 const popStateMethods = () => {
     const changeState = ( state ) => {
-        const hasURL = Object.prototype.hasOwnProperty.call( ajaxHistory.memory, `${ state.url }` );
+        const hasURL = ( ajaxHistory.memory[ state.title ] );
         console.log( "hasURL in popstate", hasURL );
-        const thisURLObj = ajaxHistory.memory[ state.url ];
+        const thisURLObj = ajaxHistory.memory[ state.title ];
         if ( hasURL ) {
             console.log( "triggered by MOUNT in popstate", hasURL );
             mountComponents( {
-                resp: thisURLObj.page_data,
-                link: state.url,
+                resp: thisURLObj.data,
+                link: thisURLObj.url,
                 popState: true,
             } );
         } else {
