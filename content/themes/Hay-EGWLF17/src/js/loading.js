@@ -16,18 +16,17 @@
 const ajaxHistory = {
     memory: {},
     length: 0,
-    add( {
-        data,
-        url,
-        title,
-    } ) {
+
+    add( { data, url, title } ) {
         this.memory[ title ] = {
-            page_data: data,
+            data,
             url,
         };
         this.length += 1;
+        console.log( "just added to memory", title );
         return this.length;
     },
+
     urlParser() {
         const thisPageURL = window.location.href;
         const urlArr = thisPageURL.split( "/" );
@@ -43,24 +42,21 @@ const ajaxHistory = {
             url: thisPageURL,
         };
     },
-    assemble( {
-        urlObj,
-        content,
-    } ) {
+
+    assemble( data ) {
+        const urlObj = this.urlParser();
         return this.add( {
-            data: content,
-            url: urlObj.url,
             title: urlObj.title,
+            url: urlObj.url,
+            data,
         } );
     },
+
     init() {
         const urlObj = this.urlParser();
-        if ( !this.memory[ urlObj ] ) {
+        if ( !this.memory[ urlObj.title ] ) {
             const content = document.getElementById( "load" ).outerHTML;
-            this.assemble( {
-                urlObj,
-                content,
-            } );
+            this.assemble( content );
         }
         return urlObj;
     },
@@ -142,11 +138,9 @@ const mountComponents = ( {
     events = false,
 } = {} ) => {
     // saves input to memory object and returns original object
-    const saveToMemory = ( $el ) => {
-        ajaxHistory.add( {
-            data: $el.outerHTML,
-            url: link,
-        } );
+    const saveToMemory = () => {
+        const $el = document.getElementById( "load" );
+        ajaxHistory.assemble( $el.outerHTML );
         return $el;
     };
 
@@ -165,7 +159,7 @@ const mountComponents = ( {
         const $el = document.createElement( "html" );
         $el.innerHTML = content;
         if ( events ) events( $el );
-        return saveToMemory( $el.querySelector( "#load" ) );
+        return $el.querySelector( "#load" );
     };
 
     // inserts the new element into the page between the current
@@ -209,6 +203,7 @@ const mountComponents = ( {
     removeEl( insertEl( createEl( resp ) ) );
     setNavClasses( link );
     if ( !popState ) setURL( link );
+    saveToMemory();
 };
 
 /*
@@ -239,7 +234,7 @@ const setAjaxEvents = ( $newContent = false ) => {
             } else {
                 console.log( "triggered by MOUNT in trigger", hasURL );
                 mountComponents( {
-                    resp: ajaxHistory.memory[ URL ].page_data,
+                    resp: ajaxHistory.memory[ URL ].data,
                     link: URL,
                     events: setAjaxEvents,
                 } );
@@ -256,6 +251,8 @@ const setAjaxEvents = ( $newContent = false ) => {
 
 /*
 *  PopState Listener
+*
+* Handles history and the back and forward buttons on browser
 */
 const popStateMethods = () => {
     const changeState = ( state ) => {
