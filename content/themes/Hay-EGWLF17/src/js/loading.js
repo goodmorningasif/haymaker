@@ -166,11 +166,11 @@ const mountComponents = ( {
     const insertEl = ( $newEl ) => {
         const $content = document.getElementById( "load" );
         const $foot = document.getElementById( "feet" );
-        $content.classList.toggle( "mount" );
-        $newEl.classList.toggle( "mount" );
+        $content.classList.remove( "mount" );
+        $newEl.classList.remove( "mount" );
         $content.parentNode.insertBefore( $newEl, $foot );
         setTimeout( () => {
-            $newEl.classList.toggle( "mount" );
+            $newEl.classList.add( "mount" );
         }, 400 );
         return $content;
     };
@@ -185,19 +185,22 @@ const mountComponents = ( {
             $oldEl.parentNode.removeChild( $oldEl );
             if ( menuIsActive ) $burgerBttn.click();
             resetBodyClasses();
-            saveToMemory();
+            if ( !popState ) saveToMemory();
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
         }, 250 );
     };
 
     // Sets the history for the browser
     const setURL = ( newLink ) => {
         const thisUrlObj = ajaxHistory.urlParser();
-        const state = {
+        const nextUrlObj = ajaxHistory.urlParser( newLink );
+        const thisState = {
             title: thisUrlObj.title,
             url: thisUrlObj.url,
         };
-        window.history.pushState( state, "", newLink );
-        return state;
+        window.history.pushState( thisState, nextUrlObj.title, newLink );
+        return thisState;
     };
 
     // executes the pipeline
@@ -268,8 +271,8 @@ const popStateMethods = () => {
         }
     };
 
-    window.addEventListener( "popstate", ( e ) => {
-        changeState( e.state );
+    window.addEventListener( "popstate", () => {
+        changeState( ajaxHistory.urlParser( window.location.href ) );
     } );
 };
 

@@ -1,4 +1,5 @@
-# []
+# Haymaker 
+[Haymaker Website](http://www.haymakerclt.com)
 Copyright 2017 SDCO Partners
 
 1. Getting Started 
@@ -163,7 +164,7 @@ For All other files ...
 
 ## Team 
   
-  * PROJECT MANAGER   :   
-  * UX/UI DESIGNER    :   
-  * DEVELOPER         :   
+  * PROJECT MANAGER   :   Lucy Noble
+  * UX/UI DESIGNER    :   Amy Pastre
+  * DEVELOPER         :   Asifuzzaman Ahmed
 
