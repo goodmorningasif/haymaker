@@ -185,6 +185,7 @@ const mountComponents = ( {
             $oldEl.parentNode.removeChild( $oldEl );
             if ( menuIsActive ) $burgerBttn.click();
             resetBodyClasses();
+            saveToMemory();
         }, 250 );
     };
 
@@ -196,7 +197,6 @@ const mountComponents = ( {
             url: thisUrlObj.url,
         };
         window.history.pushState( state, "", newLink );
-        saveToMemory();
         return state;
     };
 
@@ -223,19 +223,17 @@ const setAjaxEvents = ( $newContent = false ) => {
         const currentPage = window.location.href;
         const hasURL = ( ajaxHistory.memory[ urlObj.title ] );
         if ( urlObj.url !== currentPage ) {
-            if ( !hasURL ) {
-                // console.log( "triggered by AJAXREQ in trigger", hasURL );
-                ajaxReq( {
-                    LINK: urlObj.url,
-                    callback: mountComponents,
-                    resetEvents: setAjaxEvents,
-                } );
-            } else {
-                // console.log( "triggered by MOUNT in trigger", hasURL );
+            if ( hasURL ) {
                 mountComponents( {
                     resp: ajaxHistory.memory[ urlObj.title ].data,
                     link: ajaxHistory.memory[ urlObj.title ].url,
                     events: setAjaxEvents,
+                } );
+            } else {
+                ajaxReq( {
+                    LINK: urlObj.url,
+                    callback: mountComponents,
+                    resetEvents: setAjaxEvents,
                 } );
             }
         }
@@ -255,18 +253,14 @@ const setAjaxEvents = ( $newContent = false ) => {
 */
 const popStateMethods = () => {
     const changeState = ( state ) => {
-        const hasURL = ( ajaxHistory.memory[ state.title ] );
-        console.log( "hasURL in popstate", hasURL );
-        const thisURLObj = ajaxHistory.memory[ state.title ];
-        if ( hasURL ) {
-            console.log( "triggered by MOUNT in popstate", hasURL );
+        const thisUrlObj = ajaxHistory.memory[ state.title ];
+        if ( thisUrlObj ) {
             mountComponents( {
-                resp: thisURLObj.data,
-                link: thisURLObj.url,
+                resp: thisUrlObj.data,
+                link: thisUrlObj.url,
                 popState: true,
             } );
         } else {
-            console.log( "triggered by AJAXREQ in popstate", hasURL );
             ajaxReq( {
                 LINK: state.url,
                 callback: mountComponents,
