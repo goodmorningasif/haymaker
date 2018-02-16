@@ -261,6 +261,14 @@ const togglePopup = {
         this.closePopup();
     },
 };
+/*
+* Icon Floating Logic
+*/
+// const floatIcon = () => {
+//     const $icons 
+//     document.onscroll = () => {
+//     };
+// };
 
 /*
 * Document.Ready
@@ -288,5 +296,8 @@ document.onreadystatechange = () => {
 
         // Set Popup Logic
         togglePopup.init();
+
+        // Set Icon Animations
+        // floatIcon();
     }
 };
