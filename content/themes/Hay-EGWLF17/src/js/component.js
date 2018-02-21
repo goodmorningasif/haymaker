@@ -177,38 +177,38 @@ const loadCompByID = () => {
 /*
 * injectCompUrl
 */
-const injectCompURL = () => {
-    const $linkInput = document.getElementsByClassName( "link-url-input" );
-    const URL = ( window.location.href.indexOf( "#" ) > 0 ) ?
-        window.location.href.substring( 0, window.location.href.indexOf( "#" ) ) :
-        window.location.href;
-    Array.prototype.forEach.call( $linkInput, ( $input ) => {
-        const $thisInput = $input;
-        const $parentEl = $input.closest( ".team-member" );
-        $thisInput.value = `${ URL }#${ $parentEl.id }`;
-    } );
-};
+// const injectCompURL = () => {
+//     const $linkInput = document.getElementsByClassName( "link-url-input" );
+//     const URL = ( window.location.href.indexOf( "#" ) > 0 ) ?
+//         window.location.href.substring( 0, window.location.href.indexOf( "#" ) ) :
+//         window.location.href;
+//     Array.prototype.forEach.call( $linkInput, ( $input ) => {
+//         const $thisInput = $input;
+//         const $parentEl = $input.closest( ".team-member" );
+//         $thisInput.value = `${ URL }#${ $parentEl.id }`;
+//     } );
+// };
 
 /*
 * copyToClipboard
 */
-const copyToClipboard = () => {
-    const $linkBttns = document.getElementsByClassName( "copy-to-clipboard" );
-    Array.prototype.forEach.call( $linkBttns, ( $bttn ) => {
-        $bttn.addEventListener( "click", ( e ) => {
-            e.preventDefault();
-            const $siblings = $bttn.parentNode.childNodes;
-            Array.prototype.forEach.call( $siblings, ( $sibling ) => {
-                const $thisList = $sibling.classList;
-                const $input = $sibling;
-                if ( $thisList && $thisList[ 0 ] === "link-url-input" ) {
-                    $input.select();
-                    document.execCommand( "copy" );
-                }
-            } );
-        } );
-    } );
-};
+// const copyToClipboard = () => {
+//     const $linkBttns = document.getElementsByClassName( "copy-to-clipboard" );
+//     Array.prototype.forEach.call( $linkBttns, ( $bttn ) => {
+//         $bttn.addEventListener( "click", ( e ) => {
+//             e.preventDefault();
+//             const $siblings = $bttn.parentNode.childNodes;
+//             Array.prototype.forEach.call( $siblings, ( $sibling ) => {
+//                 const $thisList = $sibling.classList;
+//                 const $input = $sibling;
+//                 if ( $thisList && $thisList[ 0 ] === "link-url-input" ) {
+//                     $input.select();
+//                     document.execCommand( "copy" );
+//                 }
+//             } );
+//         } );
+//     } );
+// };
 
 /*
 * Active Menu
@@ -261,14 +261,24 @@ const togglePopup = {
         this.closePopup();
     },
 };
+
 /*
-* Icon Floating Logic
+* Set Hash Link
 */
-// const floatIcon = () => {
-//     const $icons 
-//     document.onscroll = () => {
-//     };
-// };
+const setHashLinks = () => {
+    const $hashes = document.getElementsByClassName( "hash" );
+    const $form = document.getElementById( "wpcf7-f199-o1" );
+    if ( $form ) {
+        const formTop = $form.getBoundingClientRect().top;
+        Array.prototype.forEach.call( $hashes, ( $hash ) => {
+            $hash.addEventListener( "click", ( e ) => {
+                e.preventDefault();
+                document.body.scrollTop = formTop;
+                document.documentElement.scrollTop = formTop;
+            } );
+        } );
+    }
+};
 
 /*
 * Document.Ready
@@ -276,7 +286,6 @@ const togglePopup = {
 
 document.onreadystatechange = () => {
     if ( document.readyState === "complete" ) {
-        console.log( "reload" );
         // Remove Root Load
         toggleRootLoad();
 
@@ -291,13 +300,13 @@ document.onreadystatechange = () => {
         // Set Compomet Logic
         toggleExpandables();
         setElRotate( "left-logo" );
-        injectCompURL();
-        copyToClipboard();
+        // injectCompURL();
+        // copyToClipboard();
 
         // Set Popup Logic
         togglePopup.init();
 
-        // Set Icon Animations
-        // floatIcon();
+        // Set Hash Events
+        setHashLinks();
     }
 };

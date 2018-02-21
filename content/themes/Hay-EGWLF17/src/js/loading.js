@@ -13,6 +13,7 @@
 * for easy search by KEY method
 *
 */
+
 const ajaxHistory = {
     memory: {},
     length: 0,
@@ -94,6 +95,18 @@ const ajaxReq = ( {
 };
 
 /*
+* Toggle Expandables
+*/
+const toggleExpandables = () => {
+    const $sections = document.getElementsByClassName( "section" );
+    Array.prototype.forEach.call( $sections, ( $section ) => {
+        $section.addEventListener( "click", () => {
+            $section.classList.toggle( "expand" );
+        } );
+    } );
+};
+
+/*
 * Set Nav Classes
 *
 * Sets the classes that trigger animations and
@@ -152,6 +165,22 @@ const mountComponents = ( {
         return newCls;
     };
 
+    // handles hash links
+    const setHashLinks = () => {
+        const $hashes = document.getElementsByClassName( "hash" );
+        const $form = document.getElementById( "wpcf7-f199-o1" );
+        if ( $form ) {
+            const formTop = $form.getBoundingClientRect().top;
+            Array.prototype.forEach.call( $hashes, ( $hash ) => {
+                $hash.addEventListener( "click", ( e ) => {
+                    e.preventDefault();
+                    document.body.scrollTop = formTop;
+                    document.documentElement.scrollTop = formTop;
+                } );
+            } );
+        }
+    };
+
     // turns the AJAX string response into an html element
     // and returns only the #load ID
     const createEl = ( content ) => {
@@ -186,6 +215,8 @@ const mountComponents = ( {
             if ( menuIsActive ) $burgerBttn.click();
             resetBodyClasses();
             if ( !popState ) saveToMemory();
+            setHashLinks();
+            toggleExpandables();
             document.body.scrollTop = 0;
             document.documentElement.scrollTop = 0;
         }, 250 );
@@ -271,7 +302,8 @@ const popStateMethods = () => {
         }
     };
 
-    window.addEventListener( "popstate", () => {
+    window.addEventListener( "popstate", ( e ) => {
+        console.log( "triggers on #", e );
         changeState( ajaxHistory.urlParser( window.location.href ) );
     } );
 };

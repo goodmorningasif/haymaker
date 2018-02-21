@@ -23,12 +23,14 @@ footer.foot
 
     div.first-row,
     div.last-row,
+    div.biz-row,
     div.content,
     div.left-wrapper
         +flex
     
     div.first-row,
-    div.last-row
+    div.last-row,
+    div.biz-row
         padding-top: 6px
         padding-bottom: 6px
 
@@ -37,6 +39,15 @@ footer.foot
             flex: 0 0 50%
             +tiny
                 flex: 0 0 100%
+
+    div.biz-row
+        h3,
+        p
+            flex: 0 0 20%
+            +tiny
+                flex: 0 0 100%
+                margin-top: 6px
+                margin-bottom: 6px
 
     div.left-wrapper
         flex: 0 0 65%
@@ -51,7 +62,7 @@ footer.foot
 
     div.directions-comp,
     div.hours-comp
-        flex: 0 0 50%
+        flex: 0 0 50% 
         padding-top: 25px
         padding-bottom: 25px
         +tiny
@@ -154,6 +165,7 @@ footer.foot
         margin-top: 13px
 
 
+
 /* OBJECTS -> For styling objects */
 /* Includes cosmetic styles like color, typography, and borders */
 /* INCEPTION RULE: DO NOT nest more than 4  */
@@ -175,15 +187,31 @@ footer.foot
             +tiny
                 text-align: center
 
+    div.first-row,
+    div.last-row,
+    div.biz-row
         p,
         h3
             @extend %LinkGoth
             text-transform: uppercase
+            line-height: 2em
             +tiny
                 text-align: center
 
-    div.last-row p
+    div.last-row p,
+    div.biz-row p
         font-size: 0.4rem
+    
+    div.biz-row
+        border-bottom: 2px solid $navy
+
+    div.last-row a,
+    div.biz-row a
+        &:hover
+            color: $gold
+
+    div.biz-row p
+        text-align: center
 
     div.content
         border-top: 2px solid $navy
