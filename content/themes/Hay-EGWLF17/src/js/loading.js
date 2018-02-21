@@ -312,11 +312,15 @@ const popStateMethods = () => {
 * Initiate Functions
 */
 
-setAjaxEvents();
-// --> Sets events to handle loading pages
+const agent = navigator.userAgent;
 
-popStateMethods();
-// --> Sets handler for Back and Forward browser buttons
+if ( agent.indexOf( "Trident" ) < 0 ) {
+    setAjaxEvents();
+    // --> Sets events to handle loading pages
 
-ajaxHistory.init();
-// --> Starts up memory
+    popStateMethods();
+    // --> Sets handler for Back and Forward browser buttons
+
+    ajaxHistory.init();
+    // --> Starts up memory
+}
