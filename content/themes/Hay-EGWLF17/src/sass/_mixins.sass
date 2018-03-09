@@ -49,7 +49,7 @@ $break-small: 500px
   background-size: $c
 
 /* Browser Detection  */
-=browser($browsers: Mozilla)
+=browser($browsers: Trident)
   @each $browser in $browsers
     html[data-browser*="#{$browser}"] &
       @content

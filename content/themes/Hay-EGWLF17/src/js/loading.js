@@ -302,8 +302,7 @@ const popStateMethods = () => {
         }
     };
 
-    window.addEventListener( "popstate", ( e ) => {
-        console.log( "triggers on #", e );
+    window.addEventListener( "popstate", () => {
         changeState( ajaxHistory.urlParser( window.location.href ) );
     } );
 };

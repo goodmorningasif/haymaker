@@ -43,7 +43,7 @@ footer.foot
     div.biz-row
         h3,
         p
-            flex: 0 0 20%
+            flex: 0 0 50%
             +tiny
                 flex: 0 0 100%
                 margin-top: 6px
@@ -52,13 +52,15 @@ footer.foot
     div.left-wrapper
         flex: 0 0 65%
         +tablet
-            flex: 0 0 100%
-            // 
+            flex: 0 0 100% 
 
     div.booking-comp
         +flex($b: center)
         flex: 0 0 100%
         padding: 25px
+        +browser
+            padding-left: 0
+            padding-right: 0
 
     div.directions-comp,
     div.hours-comp
@@ -72,22 +74,25 @@ footer.foot
             margin-bottom: 15px
 
     div.directions-comp
+        +browser
+            flex: 0 0 40%
         +tiny
             padding-left: 0
             padding-right: 0
             padding-top: 0
             padding-bottom: 30px
             margin-top: 30px
-            margin-bottom: 0      
-            // 
+            margin-bottom: 0
 
     div.hours-comp
         padding-left: 35px
+        +browser
+            flex: 0 0 55%
+            padding-left: 15px
         +tiny
             padding: 0
             margin-top: 30px
             margin-bottom: 30px
-            // 
 
     div.right-wrapper
         flex: 0 0 35%
@@ -99,6 +104,8 @@ footer.foot
             +flex
             flex: 0 0 100%
             padding-left: 0
+        +browser
+            flex: 0 0 30%
 
     div.half
         +tablet
@@ -210,8 +217,10 @@ footer.foot
         &:hover
             color: $gold
 
-    div.biz-row p
-        text-align: center
+    div.biz-row p:last-of-type
+        text-align: right
+        +tiny
+            text-align: center
 
     div.content
         border-top: 2px solid $navy

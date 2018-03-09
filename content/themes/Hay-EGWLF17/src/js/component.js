@@ -53,27 +53,28 @@ const burgerLogic = {
     $ham4: document.getElementById( "ham4" ),
 
     toggleActive() {
-        this.$hamMenu.classList.toggle( "active" );
+        if ( this.$hamMenu.classList.contains( "active" ) ) {
+            this.removeActive();
+        } else this.addActive();
     },
-
+    addActive() {
+        this.$hamMenu.classList.add( "active" );
+    },
     removeActive() {
         this.$hamMenu.classList.remove( "active" );
     },
-
     closeHams() {
         this.$ham1.classList.add( "hide" );
         this.$ham4.classList.add( "hide" );
         this.$ham2.setAttribute( "transform", "rotate(45,23.91,23.91)" );
         this.$ham3.setAttribute( "transform", "rotate(-45,23.91,23.91)" );
     },
-
     openHams() {
         this.$ham1.classList.remove( "hide" );
         this.$ham4.classList.remove( "hide" );
         this.$ham2.setAttribute( "transform", "" );
         this.$ham3.setAttribute( "transform", "" );
     },
-
     closeContact() {
         const $link = document.getElementById( "contact-link" );
         const $close = document.getElementById( "contact-close" );
@@ -93,9 +94,14 @@ const contactLogic = {
     $menu: document.getElementById( "contact-menu" ),
 
     toggleContact() {
-        this.$link.classList.toggle( "active" );
-        this.$close.classList.toggle( "active" );
-        this.$menu.classList.toggle( "active" );
+        if ( this.$link.classList.contains( "active" ) ) {
+            this.closeContact();
+        } else this.openContact();
+    },
+    openContact() {
+        this.$link.classList.add( "active" );
+        this.$close.classList.add( "active" );
+        this.$menu.classList.add( "active" );
     },
     closeContact() {
         this.$link.classList.remove( "active" );
@@ -146,7 +152,9 @@ contactLogic.init = function contactInit() {
 */
 const toggleRootLoad = () => {
     const $root = document.getElementById( "root" );
-    $root.classList.toggle( "load" );
+    if ( $root.classList.contains( "load" ) ) {
+        $root.classList.remove( "load" );
+    } else $root.classList.add( "load" );
 };
 
 /*
@@ -156,59 +164,12 @@ const toggleExpandables = () => {
     const $sections = document.getElementsByClassName( "section" );
     Array.prototype.forEach.call( $sections, ( $section ) => {
         $section.addEventListener( "click", () => {
-            $section.classList.toggle( "expand" );
+            if ( $section.classList.contains( "expand" ) ) {
+                $section.classList.remove( "expand" );
+            } else $section.classList.add( "expand" );
         } );
     } );
 };
-
-/*
-* Load Component By ID
-*/
-const loadCompByID = () => {
-    const URL = window.location.href;
-    const hasHash = URL.indexOf( "#" );
-    if ( hasHash > 0 ) {
-        const [ , hash ] = URL.split( "#" );
-        const $el = document.getElementById( hash );
-        $el.classList.toggle( "active" );
-    }
-};
-
-/*
-* injectCompUrl
-*/
-// const injectCompURL = () => {
-//     const $linkInput = document.getElementsByClassName( "link-url-input" );
-//     const URL = ( window.location.href.indexOf( "#" ) > 0 ) ?
-//         window.location.href.substring( 0, window.location.href.indexOf( "#" ) ) :
-//         window.location.href;
-//     Array.prototype.forEach.call( $linkInput, ( $input ) => {
-//         const $thisInput = $input;
-//         const $parentEl = $input.closest( ".team-member" );
-//         $thisInput.value = `${ URL }#${ $parentEl.id }`;
-//     } );
-// };
-
-/*
-* copyToClipboard
-*/
-// const copyToClipboard = () => {
-//     const $linkBttns = document.getElementsByClassName( "copy-to-clipboard" );
-//     Array.prototype.forEach.call( $linkBttns, ( $bttn ) => {
-//         $bttn.addEventListener( "click", ( e ) => {
-//             e.preventDefault();
-//             const $siblings = $bttn.parentNode.childNodes;
-//             Array.prototype.forEach.call( $siblings, ( $sibling ) => {
-//                 const $thisList = $sibling.classList;
-//                 const $input = $sibling;
-//                 if ( $thisList && $thisList[ 0 ] === "link-url-input" ) {
-//                     $input.select();
-//                     document.execCommand( "copy" );
-//                 }
-//             } );
-//         } );
-//     } );
-// };
 
 /*
 * Active Menu
@@ -219,7 +180,9 @@ const activeMenu = () => {
     const page = split[ split.length - 2 ].toLowerCase();
     const $pageLink = document.getElementById( `pg-${ page }` );
     if ( $pageLink ) {
-        $pageLink.classList.toggle( "active" );
+        if ( $pageLink.classList.contains( "active" ) ) {
+            $pageLink.classList.remove( "active" );
+        } else $pageLink.classList.add( "active" );
     }
 };
 
@@ -289,9 +252,6 @@ document.onreadystatechange = () => {
         // Remove Root Load
         toggleRootLoad();
 
-        // Set Loading Logic
-        loadCompByID();
-
         // Set Menu Logic
         activeMenu();
         burgerLogic.init();
@@ -300,8 +260,6 @@ document.onreadystatechange = () => {
         // Set Compomet Logic
         toggleExpandables();
         setElRotate( "left-logo" );
-        // injectCompURL();
-        // copyToClipboard();
 
         // Set Popup Logic
         togglePopup.init();

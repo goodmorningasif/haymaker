@@ -82,8 +82,6 @@ $hours = get_field('hours','options');
   	</div> 		
 	</div>
   <div class="biz-row">
-    <p><a target="_blank" href="http://www.kmssa.com/">SERVICE SYSTEMS ASSOCIATES</a></p>
-    <p><a target="_blank" href="http://www.nczoo.org/">THE NORTH CAROLINA ZOOLOGICAL PARK</a></p>
     <p><a target="_blank" href="http://marketplace-restaurant.com">THE MARKET PLACE RESTAURANT</a></p>
     <p><a target="_blank" href="http://billydschicken.com">BILLY D'S FRIED CHICKEN</a></p>
   </div>
